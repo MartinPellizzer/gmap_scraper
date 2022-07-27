@@ -11,12 +11,11 @@ from collections import deque
 from bs4 import BeautifulSoup
 import pandas as pd
 
-driver = webdriver.Chrome('./chromedriver')
-driver.maximize_window()
-driver.get('https://www.google.com')
-sleep(2)
-driver.find_element(By.XPATH, '//div[text()="Rifiuta tutto"]').click()
-sleep(2)
+import sys
+import csv
+
+driver = None
+
 
 def scrape_emails(url):
 	parts = urlsplit(url)
@@ -56,14 +55,42 @@ def scroll_down_up_down():
 	
 
 
-try: os.remove('document.csv')
-except OSError: pass
-
-driver.get('https://www.google.com/maps/search/azienda+vitivinicola+friuli')
-#driver.get('https://www.google.com/search?q=cantine+near+me')
-
 done = []
-for i in range(20):
+
+# try: os.remove('document.csv')
+# except OSError: pass
+
+try:
+	with open('document.csv', mode='r') as f:
+		csv_reader = csv.reader(f, delimiter=',')
+		for row in f:
+			info = row.split(';')
+			done.append(info[0])
+except:
+	pass
+
+# exit()
+
+
+
+
+def open_browser():
+	global driver
+	driver = webdriver.Chrome('./chromedriver')
+	driver.maximize_window()
+	driver.get('https://www.google.com')
+	sleep(2)
+	driver.find_element(By.XPATH, '//div[text()="Rifiuta tutto"]').click()
+	sleep(2)
+open_browser()
+
+
+search_text = sys.argv[1]
+search_text = search_text.replace(' ', '+')
+print(search_text)
+driver.get(f'https://www.google.com/maps/search/{search_text}')
+
+for i in range(50):
 	sleep(2)
 
 	# get the first new business found
@@ -71,7 +98,10 @@ for i in range(20):
 
 	# if not new business found, try to load more businesses
 	if not todo:
+		print('---------------------------------------------')
 		print('nothing new...')
+		print('---------------------------------------------')
+		print()
 		scroll_down_up_down()
 		continue
 	
@@ -120,3 +150,6 @@ for i in range(20):
 
 	with open('document.csv','a') as f:
 		f.write(f'{name}{divider}{address}{divider}{website}{divider}{phone}{divider}{s_emails}\n')
+
+driver.close()
+exit()
