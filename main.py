@@ -15,21 +15,80 @@ import sys
 import csv
 
 driver = None
+num_operations = 5
 
+def find_contact_url(url):
+	contact_page = ''
+
+	response = requests.get(url)
+	soup = BeautifulSoup(response.text, 'lxml')
+
+	for link in soup.find_all('a'):
+		if 'contatti' in str(link).lower():
+			link = link.get('href')
+			contact_page = link
+			print(link)
+	
+	return contact_page
+
+def scrape_validate_emails():
+	pass
 
 def scrape_emails(url):
-	parts = urlsplit(url)
-	base_url = f"{parts.scheme}://{parts.netloc}"
-
-	try: response = requests.get(base_url)
-	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError): return ''
-
-	matches = re.finditer(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.(com|net|edu|it|eu)', response.text)
-
 	emails = set()
-	for match in matches:
-		emails.add(match.group())
+	
+	parts = urlsplit(url)
+	domain_name = parts.netloc.replace('www.', '').split('.')[0]
 
+	list_domains = [domain_name, 'gmail', 'hotmail', 'legalmail']
+
+	regex_string = r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'
+
+	# homepage
+	try: 
+		response = requests.get(url)
+		matches = re.finditer(regex_string, response.text)
+		for match in matches:
+			print(parts.netloc + ' --> ' + match.group())
+			for domain in list_domains:
+				if domain in match.group():
+					emails.add(match.group())
+					break
+	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError): 
+		print('*** cant load page')
+		return set()
+
+	# contact page 1
+	contact_page = find_contact_url(url)
+	try:
+		response = requests.get(contact_page)
+		matches = re.finditer(regex_string, response.text)
+		for match in matches:
+			print(parts.netloc + ' --> ' + match.group())
+			for domain in list_domains:
+				if domain in match.group():
+					emails.add(match.group())
+					break
+	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError): 
+		print('*** cant find contact link')
+		pass
+		
+	# contact page 2
+	last_resort_url = f'{url}/contatti'
+	print(f'LAST RESORT: {last_resort_url}')
+	try:
+		response = requests.get(last_resort_url)
+		matches = re.finditer(regex_string, response.text)
+		for match in matches:
+			print(parts.netloc + ' --> ' + match.group())
+			for domain in list_domains:
+				if domain in match.group():
+					emails.add(match.group())
+					break
+	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
+		print('*** has no contact url')
+		pass
+		
 	return emails
 
 def get_new_business():
@@ -57,8 +116,8 @@ def scroll_down_up_down():
 
 done = []
 
-# try: os.remove('document.csv')
-# except OSError: pass
+try: os.remove('document.csv')
+except OSError: pass
 
 try:
 	with open('document.csv', mode='r') as f:
@@ -68,8 +127,6 @@ try:
 			done.append(info[0])
 except:
 	pass
-
-# exit()
 
 
 
@@ -89,8 +146,10 @@ search_text = sys.argv[1]
 search_text = search_text.replace(' ', '+')
 print(search_text)
 driver.get(f'https://www.google.com/maps/search/{search_text}')
+#driver.get(f'https://www.google.com/maps/search/azienda+vinicola+padova')
 
-for i in range(50):
+for i in range(num_operations):
+	print(f'SCRAPING: {i}/{num_operations}')
 	sleep(2)
 
 	# get the first new business found
@@ -126,17 +185,21 @@ for i in range(50):
 
 	try: name = element_main.find_element(By.XPATH, './/h1').text
 	except: pass
+	
 	if name != aria_label: continue
 
 	try: address = element_main.find_element(By.XPATH, './/button[@data-item-id="address"]').text
 	except: pass
-	try: website = element_main.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
+	try: 
+		website = element_main.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
+		parts = urlsplit(website)
+		website = f"{parts.scheme}://{parts.netloc}"
 	except: pass
 	try: phone = element_main.find_element(By.XPATH, './/button[contains(@data-item-id, "phone")]').text
 	except: pass
-	try: emails = scrape_emails(website)
-	except: pass
 
+	emails = scrape_emails(website)
+	
 	print(name)
 	print(address)
 	print(website)
@@ -148,8 +211,10 @@ for i in range(50):
 
 	divider = ';'
 
-	with open('document.csv','a') as f:
-		f.write(f'{name}{divider}{address}{divider}{website}{divider}{phone}{divider}{s_emails}\n')
+	string_to_write = f'{name}{divider}{address}{divider}{website}{divider}{phone}{divider}{s_emails}\n'
+	string_to_write = string_to_write.replace('"', '')
 
-driver.close()
-exit()
+	with open('document.csv','a', encoding="utf-8") as f:
+		f.write(string_to_write)
+
+#driver.close()
