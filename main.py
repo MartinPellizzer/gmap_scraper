@@ -9,13 +9,13 @@ import requests
 from urllib.parse import urlsplit
 from collections import deque
 from bs4 import BeautifulSoup
+import pandas
 
 import sys
 import csv
 
 driver = None
 
-num_operations = 5
 sep = ';'
 
 
@@ -45,6 +45,31 @@ def get_old_businesses_pandas():
 		return df['name'].to_list()
 	else: 
 		create_csv()
+		return []
+		
+def get_cities():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		return df['city'].to_list()
+	else: 
+		return []
+		
+def get_districts():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		return df['district'].to_list()
+	else: 
+		return []
+
+		
+def get_done():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		return df['done'].to_list()
+	else: 
 		return []
 
 
@@ -158,6 +183,12 @@ def scroll_down_up_down():
 
 def search_map():
 	driver.get(f'https://www.google.com/maps/search/azienda+vinicola+padova')
+	
+def search_map2(business_type, cities, districts):
+	search_text = f'{business_type} {cities} {districts}'
+	search_text = search_text.replace(' ', '+')
+	print(search_text)
+	driver.get(f'https://www.google.com/maps/search/{search_text}')
 
 
 def click_on_listing(business):
@@ -211,6 +242,7 @@ def find_new_business(old_businesses):
 			return e, name
 	return None, None
 
+
 def debug_info(name, address, website, phone, emails):
 	print(f'{"Name:":<8} {name}')
 	print(f'{"Address:":<8} {address}')
@@ -219,6 +251,7 @@ def debug_info(name, address, website, phone, emails):
 	print(f'{"Emails:":<8} {emails}')
 	print(f'{"":->64}')
 	print()
+
 
 def scrape_new_business():
 	# get already scraped businesses
@@ -247,17 +280,17 @@ def scrape_new_business():
 	website = scrape_website(card_element)
 	phone = scrape_phone(card_element)
 	emails = scrape_emails(website)
-	# s_emails = ' '.join(emails)
+	s_emails = ' '.join(emails)
 
-	debug_info(name, address, website, phone, emails)
+	debug_info(name, address, website, phone, s_emails)
 
-	global csv_sep
+	global sep
 	string_to_write = ''
-	string_to_write += f'{name}{csv_sep}'
-	string_to_write += f'{address}{csv_sep}'
-	string_to_write += f'{website}{csv_sep}'
-	string_to_write += f'{phone}{csv_sep}'
-	string_to_write += f'{emails}\n'
+	string_to_write += f'{name}{sep}'
+	string_to_write += f'{address}{sep}'
+	string_to_write += f'{website}{sep}'
+	string_to_write += f'{phone}{sep}'
+	string_to_write += f'{s_emails}\n'
 
 	with open('document.csv', 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
@@ -266,13 +299,46 @@ def scrape_new_business():
 ######################################################################################
 # MAIN
 ######################################################################################
+
+
 open_browser()
-search_map()
-scrape_new_business()
 
-for i in range(5):
-	scrape_new_business()
+business_type = 'salumificio'
+cities = get_cities()
+districts = get_districts()
 
+NUM_SCRAPES_X_SEARCH = 5
+NUM_CITIES_TO_SCRAPE = 5
+for i in range(len(cities)):
+	done = get_done()
+
+	if done[i] == 'x':
+		continue
+
+	if i >= NUM_CITIES_TO_SCRAPE: 
+		break
+
+	search_map2(business_type, cities[i], districts[i])
+
+	for _ in range(NUM_SCRAPES_X_SEARCH):
+		scrape_new_business()
+
+	with open('lista_comuni_veneto.csv', newline='') as f:
+		reader = csv.reader(f, delimiter=sep)
+		rows = []
+		for row in reader:
+			rows.append(row)
+
+		# for row in rows:
+		# 	print(row)
+
+	# rows[i][3] = 'x'
+	rows[i+1][3] = 'x'
+
+	with open('lista_comuni_veneto.csv', 'w', newline='') as f:
+		writer = csv.writer(f, delimiter=sep)
+		writer.writerows(rows)
+		
 
 main()
 
@@ -283,4 +349,3 @@ search_text = sys.argv[1]
 search_text = search_text.replace(' ', '+')
 driver.get(f'https://www.google.com/maps/search/{search_text}')
 '''
-
