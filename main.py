@@ -95,7 +95,6 @@ def find_contact_url(url):
 		if 'contatti' in str(link).lower():
 			link = link.get('href')
 			contact_page = link
-			# print(link)
 	
 	return contact_page
 
@@ -120,7 +119,7 @@ def scrape_emails(url):
 				if domain in match.group():
 					emails.add(match.group())
 					break
-	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError): 
+	except: 
 		# print('*** cant load page')
 		return set()
 
@@ -135,7 +134,7 @@ def scrape_emails(url):
 				if domain in match.group():
 					emails.add(match.group())
 					break
-	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError): 
+	except: 
 		# print('*** cant find contact link')
 		pass
 		
@@ -151,7 +150,7 @@ def scrape_emails(url):
 				if domain in match.group():
 					emails.add(match.group())
 					break
-	except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
+	except:
 		# print('*** has no contact url')
 		pass
 		
@@ -186,8 +185,8 @@ def search_map():
 	
 def search_map2(business_type, cities, districts):
 	search_text = f'{business_type} {cities} {districts}'
+	print(search_text.lower())
 	search_text = search_text.replace(' ', '+')
-	print(search_text)
 	driver.get(f'https://www.google.com/maps/search/{search_text}')
 
 
@@ -300,52 +299,35 @@ def scrape_new_business():
 # MAIN
 ######################################################################################
 
+def main():
+	open_browser()
 
-open_browser()
+	business_type = 'salumificio'
+	cities = get_cities()
+	districts = get_districts()
 
-business_type = 'salumificio'
-cities = get_cities()
-districts = get_districts()
+	NUM_SCRAPES_X_SEARCH = 50
+	for i in range(len(cities)):
+		done = get_done()
 
-NUM_SCRAPES_X_SEARCH = 5
-NUM_CITIES_TO_SCRAPE = 5
-for i in range(len(cities)):
-	done = get_done()
+		if done[i] == 'x':
+			continue
 
-	if done[i] == 'x':
-		continue
+		search_map2(business_type, cities[i], districts[i])
 
-	if i >= NUM_CITIES_TO_SCRAPE: 
-		break
+		for _ in range(NUM_SCRAPES_X_SEARCH):
+			scrape_new_business()
 
-	search_map2(business_type, cities[i], districts[i])
+		with open('lista_comuni_veneto.csv', newline='') as f:
+			reader = csv.reader(f, delimiter=sep)
+			rows = []
+			for row in reader:
+				rows.append(row)
 
-	for _ in range(NUM_SCRAPES_X_SEARCH):
-		scrape_new_business()
+		rows[i+1][3] = 'x'
 
-	with open('lista_comuni_veneto.csv', newline='') as f:
-		reader = csv.reader(f, delimiter=sep)
-		rows = []
-		for row in reader:
-			rows.append(row)
-
-		# for row in rows:
-		# 	print(row)
-
-	# rows[i][3] = 'x'
-	rows[i+1][3] = 'x'
-
-	with open('lista_comuni_veneto.csv', 'w', newline='') as f:
-		writer = csv.writer(f, delimiter=sep)
-		writer.writerows(rows)
-		
+		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
+			writer = csv.writer(f, delimiter=sep)
+			writer.writerows(rows)
 
 main()
-
-quit()
-
-'''
-search_text = sys.argv[1]
-search_text = search_text.replace(' ', '+')
-driver.get(f'https://www.google.com/maps/search/{search_text}')
-'''
