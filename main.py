@@ -26,6 +26,7 @@ def create_csv():
 	with open('document.csv', 'w', encoding='utf-8') as f:
 		f.write(f'name{sep}address{sep}website{sep}phone{sep}emails\n')
 
+
 def get_old_businesses():
 	global sep
 	if os.path.isfile('document.csv'):
@@ -38,6 +39,7 @@ def get_old_businesses():
 	else: 
 		return []
 		
+
 def get_old_businesses_pandas():
 	global sep
 	if os.path.isfile('document.csv'):
@@ -47,6 +49,7 @@ def get_old_businesses_pandas():
 		create_csv()
 		return []
 		
+
 def get_cities():
 	global sep
 	if os.path.isfile('lista_comuni_veneto.csv'):
@@ -55,6 +58,7 @@ def get_cities():
 	else: 
 		return []
 		
+
 def get_districts():
 	global sep
 	if os.path.isfile('lista_comuni_veneto.csv'):
@@ -86,6 +90,7 @@ def to_ascii(text):
 # EMAILS
 ######################################################################################
 def find_contact_url(url):
+	print('finding contact url...')
 	contact_page = ''
 
 	response = requests.get(url)
@@ -101,61 +106,36 @@ def find_contact_url(url):
 
 def scrape_emails(url):
 	emails = set()
-	
-	parts = urlsplit(url)
-	domain_name = parts.netloc.replace('www.', '').split('.')[0]
-
-	list_domains = [domain_name, 'gmail', 'hotmail', 'legalmail']
 
 	regex_string = r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+'
 
 	# homepage
 	try: 
+		print('finding contact url...')
 		response = requests.get(url)
 		matches = re.finditer(regex_string, response.text)
-		for match in matches:
-			# print(parts.netloc + ' --> ' + match.group())
-			for domain in list_domains:
-				if domain in match.group():
-					emails.add(match.group())
-					break
-	except: 
-		# print('*** cant load page')
-		return set()
+		for match in matches: emails.add(match.group())
+	except: return emails
 
 	# contact page 1
 	contact_page = find_contact_url(url)
 	try:
 		response = requests.get(contact_page)
 		matches = re.finditer(regex_string, response.text)
-		for match in matches:
-			# print(parts.netloc + ' --> ' + match.group())
-			for domain in list_domains:
-				if domain in match.group():
-					emails.add(match.group())
-					break
-	except: 
-		# print('*** cant find contact link')
-		pass
+		for match in matches: emails.add(match.group())
+	except: return emails
 		
 	# contact page 2
+	'''
 	last_resort_url = f'{url}/contatti'
-	# print(f'LAST RESORT: {last_resort_url}')
 	try:
 		response = requests.get(last_resort_url)
 		matches = re.finditer(regex_string, response.text)
-		for match in matches:
-			# print(parts.netloc + ' --> ' + match.group())
-			for domain in list_domains:
-				if domain in match.group():
-					emails.add(match.group())
-					break
-	except:
-		# print('*** has no contact url')
-		pass
+		for match in matches: emails.add(match.group())
+	except: pass
+	'''
 		
 	return emails
-
 	
 ######################################################################################
 # BROWSER
@@ -180,10 +160,7 @@ def scroll_down_up_down():
 	sleep(2)
 
 
-def search_map():
-	driver.get(f'https://www.google.com/maps/search/azienda+vinicola+padova')
-	
-def search_map2(business_type, cities, districts):
+def search_map(business_type, cities, districts):
 	search_text = f'{business_type} {cities} {districts}'
 	print(search_text.lower())
 	search_text = search_text.replace(' ', '+')
@@ -206,7 +183,7 @@ def click_on_listing(business):
 def get_card_element(e):
 	try: return e.find_elements(By.XPATH, '//div[@role="main"]')[1]
 	except: return None
-	
+
 
 def scrape_name(e):
 	try: return e.find_element(By.XPATH, './/h1').text
@@ -219,11 +196,7 @@ def scrape_address(e):
 
 
 def scrape_website(e):
-	try: 
-		website = e.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
-		parts = urlsplit(website)
-		website = f"{parts.scheme}://{parts.netloc}"
-		return website
+	try: return e.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
 	except: return ''
 
 
@@ -261,19 +234,23 @@ def scrape_new_business():
 
 	# if not new businesses found, scroll down the page to load more
 	if not business:
-		scroll_down_up_down()
-		return
+		try: 
+			scroll_down_up_down()
+		except: 
+			return 'skip_search'
+		return 'no_new_business_found'
 
 	# google maps is bugged: scroll a bit the screen and try clicking again if needed
 	if not click_on_listing(business):
-		return
+		return 'failed_to_click_listing'
 
 	sleep(2)
 	
 	card_element = get_card_element(business)
 
 	name = scrape_name(card_element)
-	if name != label: return
+	if name != label:
+		return 'name_not_equal_label'
 
 	address = scrape_address(card_element)
 	website = scrape_website(card_element)
@@ -294,7 +271,7 @@ def scrape_new_business():
 	with open('document.csv', 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
 
-	
+
 ######################################################################################
 # MAIN
 ######################################################################################
@@ -313,10 +290,48 @@ def main():
 		if done[i] == 'x':
 			continue
 
-		search_map2(business_type, cities[i], districts[i])
+		search_map(business_type, cities[i], districts[i])
 
 		for _ in range(NUM_SCRAPES_X_SEARCH):
-			scrape_new_business()
+			err = scrape_new_business()
+			if err == 'skip_search':
+				break
+
+		with open('lista_comuni_veneto.csv', newline='') as f:
+			reader = csv.reader(f, delimiter=sep)
+			rows = []
+			for row in reader:
+				rows.append(row)
+
+		rows[i+1][3] = 'x'
+
+		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
+			writer = csv.writer(f, delimiter=sep)
+			writer.writerows(rows)
+
+def main_test():
+	open_browser()
+
+	business_type = 'salumificio'
+	cities = get_cities()
+	districts = get_districts()
+
+	NUM_SCRAPES_X_SEARCH = 50
+	for i in range(len(cities)):
+		done = get_done()
+
+		# if num >= 3:
+		# 	break
+
+		if done[i] == 'x':
+			continue
+
+		search_map(business_type, cities[i], districts[i])
+
+		for _ in range(NUM_SCRAPES_X_SEARCH):
+			err = scrape_new_business()
+			if err == 'skip_search':
+				break
 
 		with open('lista_comuni_veneto.csv', newline='') as f:
 			reader = csv.reader(f, delimiter=sep)
@@ -331,3 +346,41 @@ def main():
 			writer.writerows(rows)
 
 main()
+
+
+'''
+open_browser()
+
+business_type = 'salumificio'
+cities = get_cities()
+districts = get_districts()
+
+search_map(business_type, cities[0], districts[0])
+scrape_new_business()
+
+NUM_SCRAPES_X_SEARCH = 50
+for i in range(len(cities)):
+	done = get_done()
+
+	if done[i] == 'x':
+		continue
+
+	search_map2(business_type, cities[0], districts[0])
+
+	for _ in range(NUM_SCRAPES_X_SEARCH):
+		err = scrape_new_business()
+		if err == 'skip_search':
+			break
+
+	with open('lista_comuni_veneto.csv', newline='') as f:
+		reader = csv.reader(f, delimiter=sep)
+		rows = []
+		for row in reader:
+			rows.append(row)
+
+	rows[i+1][3] = 'x'
+
+	with open('lista_comuni_veneto.csv', 'w', newline='') as f:
+		writer = csv.writer(f, delimiter=sep)
+		writer.writerows(rows)
+'''
