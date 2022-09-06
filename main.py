@@ -127,8 +127,8 @@ def scrape_emails(url):
 	except: return emails
 
 	# contact page 1
-	contact_page = find_contact_url(url)
 	try:
+		contact_page = find_contact_url(url)
 		response = requests.get(contact_page)
 		matches = re.finditer(regex_string, response.text)
 		for match in matches: emails.add(match.group())
