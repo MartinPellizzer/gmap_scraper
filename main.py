@@ -24,13 +24,13 @@ sep = ';'
 ######################################################################################
 def create_csv():
 	with open('document.csv', 'w', encoding='utf-8') as f:
-		f.write(f'name{sep}address{sep}website{sep}phone{sep}emails\n')
+		f.write(f'name{sep}address{sep}website{sep}phone{sep}emails{sep}district\n')
 
 
 def get_old_businesses():
 	global sep
 	if os.path.isfile('document.csv'):
-		names = list()
+		names = []
 		with open('document.csv', 'r', encoding="utf-8") as f:
 			lines = f.readlines()
 			for line in lines:
@@ -42,8 +42,17 @@ def get_old_businesses():
 
 def get_old_businesses_pandas():
 	global sep
+	# names = []
+	# if os.path.isfile('document.csv'):
+	# 	for chunk in pandas.read_csv(
+	# 		'document.csv', 
+	# 		sep=sep,
+	# 		chunksize=100
+	# 	):
+	# 		names.append(chunk['name'].to_list())
+	
 	if os.path.isfile('document.csv'):
-		df = pandas.read_csv('document.csv', sep=sep)
+		df = pandas.read_csv('document.csv', sep=sep, error_bad_lines=False, engine='python')
 		return df['name'].to_list()
 	else: 
 		create_csv()
@@ -195,6 +204,11 @@ def scrape_address(e):
 	except: return ''
 
 
+def scrape_district(e):
+	try: return e.find_element(By.XPATH, './/button[@data-item-id="address"]').text.split(' ')[-1]
+	except: return ''
+
+
 def scrape_website(e):
 	try: return e.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
 	except: return ''
@@ -215,9 +229,10 @@ def find_new_business(old_businesses):
 	return None, None
 
 
-def debug_info(name, address, website, phone, emails):
+def debug_info(name, address, district, website, phone, emails):
 	print(f'{"Name:":<8} {name}')
 	print(f'{"Address:":<8} {address}')
+	print(f'{"District:":<8} {district}')
 	print(f'{"Website:":<8} {website}')
 	print(f'{"Phone:":<8} {phone}')
 	print(f'{"Emails:":<8} {emails}')
@@ -227,7 +242,8 @@ def debug_info(name, address, website, phone, emails):
 
 def scrape_new_business():
 	# get already scraped businesses
-	old_businesses = get_old_businesses_pandas()
+	# old_businesses = get_old_businesses_pandas()
+	old_businesses = get_old_businesses()
 
 	# get the first new business that was not previously scraped
 	business, label = find_new_business(old_businesses)
@@ -253,12 +269,13 @@ def scrape_new_business():
 		return 'name_not_equal_label'
 
 	address = scrape_address(card_element)
+	district = scrape_district(card_element)
 	website = scrape_website(card_element)
 	phone = scrape_phone(card_element)
 	emails = scrape_emails(website)
 	s_emails = ' '.join(emails)
 
-	debug_info(name, address, website, phone, s_emails)
+	debug_info(name, address, district, website, phone, s_emails)
 
 	global sep
 	string_to_write = ''
@@ -266,7 +283,8 @@ def scrape_new_business():
 	string_to_write += f'{address}{sep}'
 	string_to_write += f'{website}{sep}'
 	string_to_write += f'{phone}{sep}'
-	string_to_write += f'{s_emails}\n'
+	string_to_write += f'{s_emails}{sep}'
+	string_to_write += f'{district}\n'
 
 	with open('document.csv', 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
