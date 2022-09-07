@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from time import sleep
@@ -99,7 +100,6 @@ def to_ascii(text):
 # EMAILS
 ######################################################################################
 def find_contact_url(url):
-	print('finding contact url...')
 	contact_page = ''
 
 	response = requests.get(url)
@@ -122,14 +122,17 @@ def scrape_emails(url):
 	try: 
 		print('finding contact url...')
 		response = requests.get(url)
+		print(response)
 		matches = re.finditer(regex_string, response.text)
 		for match in matches: emails.add(match.group())
 	except: return emails
 
 	# contact page 1
 	try:
+		print('finding contact url...')
 		contact_page = find_contact_url(url)
 		response = requests.get(contact_page)
+		print(response)
 		matches = re.finditer(regex_string, response.text)
 		for match in matches: emails.add(match.group())
 	except: return emails
@@ -143,7 +146,8 @@ def scrape_emails(url):
 		for match in matches: emails.add(match.group())
 	except: pass
 	'''
-		
+	
+	print('done scraping website')
 	return emails
 	
 ######################################################################################
@@ -151,7 +155,10 @@ def scrape_emails(url):
 ######################################################################################
 def open_browser():
 	global driver
-	driver = webdriver.Chrome('./chromedriver')
+	chrome_options = Options()
+	# chrome_options.add_argument('--headless')
+	chrome_options.add_argument('--disable-gpu')
+	driver = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
 	driver.maximize_window()
 	driver.get('https://www.google.com')
 	sleep(2)
