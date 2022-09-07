@@ -19,6 +19,8 @@ driver = None
 
 sep = ';'
 
+VENETO_DISTRICTS = ['BL', 'PD', 'RO', 'TV', 'VE', 'VR', 'VI']
+
 
 ######################################################################################
 # CSV
@@ -136,16 +138,6 @@ def scrape_emails(url):
 		matches = re.finditer(regex_string, response.text)
 		for match in matches: emails.add(match.group())
 	except: return emails
-		
-	# contact page 2
-	'''
-	last_resort_url = f'{url}/contatti'
-	try:
-		response = requests.get(last_resort_url)
-		matches = re.finditer(regex_string, response.text)
-		for match in matches: emails.add(match.group())
-	except: pass
-	'''
 	
 	print('done scraping website')
 	return emails
@@ -155,10 +147,10 @@ def scrape_emails(url):
 ######################################################################################
 def open_browser():
 	global driver
-	chrome_options = Options()
-	# chrome_options.add_argument('--headless')
-	chrome_options.add_argument('--disable-gpu')
-	driver = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
+	options = Options()
+	# options.add_argument('--headless')
+	options.add_argument('--disable-gpu')
+	driver = webdriver.Chrome('./driver/chromedriver', options=options)
 	driver.maximize_window()
 	driver.get('https://www.google.com')
 	sleep(2)
@@ -248,14 +240,9 @@ def debug_info(name, address, district, website, phone, emails):
 
 
 def scrape_new_business():
-	# get already scraped businesses
-	# old_businesses = get_old_businesses_pandas()
 	old_businesses = get_old_businesses()
-
-	# get the first new business that was not previously scraped
 	business, label = find_new_business(old_businesses)
 
-	# if not new businesses found, scroll down the page to load more
 	if not business:
 		try: 
 			scroll_down_up_down()
@@ -276,7 +263,11 @@ def scrape_new_business():
 		return 'name_not_equal_label'
 
 	address = scrape_address(card_element)
+
 	district = scrape_district(card_element)
+	if district not in VENETO_DISTRICTS:
+		return 'external_district'
+
 	website = scrape_website(card_element)
 	phone = scrape_phone(card_element)
 	emails = scrape_emails(website)
