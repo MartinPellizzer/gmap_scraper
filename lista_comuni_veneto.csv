@@ -1,564 +1,564 @@
-city;district;population;done
-Abano Terme;Padova;19�349;x
-Adria;Rovigo;20�233;x
-Affi;Verona;2�297;x
-Agna;Padova;3�400;x
-Agordo;Belluno;4�249;x
-Agugliaro;Vicenza;1�422;x
-Alano di Piave;Belluno;2�926;x
-Albaredo d'Adige;Verona;5�232;x
-Albettone;Vicenza;2�066;x
-Albignasego;Padova;23�464;x
-Alleghe;Belluno;1�331;x
-Alonte;Vicenza;1�647;x
-Alpago;Belluno;7�175;x
-Altavilla Vicentina;Vicenza;11�760;x
-Altissimo;Vicenza;2�266;x
-Altivole;Treviso;6�720;x
-Angiari;Verona;2�164;x
-Anguillara Veneta;Padova;4�594;x
-Annone Veneto;Venezia;3�976;x
-Arcade;Treviso;4�366;x
-Arcole;Verona;6�144;x
-Arcugnano;Vicenza;7�899;x
-Ariano nel Polesine;Rovigo;4�554;x
-Arqu� Petrarca;Padova;1�847;x
-Arqu� Polesine;Rovigo;2�811;x
-Arre;Padova;2�191;x
-Arsi�;Belluno;2�465;x
-Arsiero;Vicenza;3�303;x
-Arzergrande;Padova;4�682;x
-Arzignano;Vicenza;25�589;x
-Asiago;Vicenza;6�391;x
-Asigliano Veneto;Vicenza;877;x
-Asolo;Treviso;8�952;x
-Auronzo di Cadore;Belluno;3�453;x
-Badia Calavena;Verona;2�661;x
-Badia Polesine;Rovigo;10�536;x
-Bagnoli di Sopra;Padova;3�626;x
-Bagnolo di Po;Rovigo;1�374;x
-Baone;Padova;3�108;x
-Barbarano Mossano;Vicenza;6�352;x
-Barbona;Padova;733;x
-Bardolino;Verona;6�714;x
-Bassano del Grappa;Vicenza;42�984;x
-Battaglia Terme;Padova;3�933;x
-Belfiore;Verona;3�008;x
-Belluno;Belluno;35�591;x
-Bergantino;Rovigo;2�626;x
-Bevilacqua;Verona;1�787;x
-Boara Pisani;Padova;2�611;x
-Bolzano Vicentino;Vicenza;6�509;x
-Bonavigo;Verona;2�024;x
-Borca di Cadore;Belluno;818;x
-Borgoricco;Padova;8�478;x
-Borgo Valbelluna;Belluno;13�747;x
-Borgo Veneto;Padova;7�000;x
-Borso del Grappa;Treviso;5�913;x
-Bosaro;Rovigo;1�508;x
-Boschi Sant'Anna;Verona;1�454;x
-Bosco Chiesanuova;Verona;3�546;x
-Bovolenta;Padova;3�349;x
-Bovolone;Verona;15�846;x
-Breda di Piave;Treviso;7�750;x
-Breganze;Vicenza;8�693;x
-Brendola;Vicenza;6�722;x
-Brentino Belluno;Verona;1�406;x
-Brenzone sul Garda;Verona;2�496;x
-Bressanvido;Vicenza;3�108;x
-Brogliano;Vicenza;3�900;x
-Brugine;Padova;6�812;x
-Bussolengo;Verona;19�483;x
-Buttapietra;Verona;6�867;x
-Cadoneghe;Padova;15�964;x
-Caerano di San Marco;Treviso;7�941;x
-Calalzo di Cadore;Belluno;2�173;x
-Caldiero;Verona;7�374;x
-Caldogno;Vicenza;11�221;x
-Calto;Rovigo;819;x
-Caltrano;Vicenza;2�607;x
-Calvene;Vicenza;1�323;x
-Camisano Vicentino;Vicenza;10�624;x
-Campagna Lupia;Venezia;6�936;x
-Campiglia dei Berici;Vicenza;1�791;x
-Campo San Martino;Padova;5�724;x
-Campodarsego;Padova;14�169;x
-Campodoro;Padova;2�725;x
-Campolongo Maggiore;Venezia;10�342;x
-Camponogara;Venezia;12�920;x
-Camposampiero;Padova;12�019;x
-Canale d'Agordo;Belluno;1�172;x
-Canaro;Rovigo;2�853;x
-Canda;Rovigo;1�007;x
-Candiana;Padova;2�468;x
-Caorle;Venezia;11�793;x
-Cappella Maggiore;Treviso;4�677;x
-Caprino Veronese;Verona;8�065;x
-Carbonera;Treviso;11�135;x
-Carceri;Padova;1�600;x
-Carmignano di Brenta;Padova;7�540;x
-Carr�;Vicenza;3�647;x
-Cartigliano;Vicenza;3�802;x
-Cartura;Padova;4�623;x
-Casale di Scodosia;Padova;4�866;x
-Casale sul Sile;Treviso;12�722;x
-Casaleone;Verona;5�939;x
-Casalserugo;Padova;5�452;x
-Casier;Treviso;11�018;x
-Cassola;Vicenza;14�128;x
-Castagnaro;Verona;3�930;x
-Castegnero;Vicenza;2�857;x
-Castel d'Azzano;Verona;11�739;x
-Castelbaldo;Padova;1�625;x
-Castelcucco;Treviso;2�189;x
-Castelfranco Veneto;Treviso;32�894;x
-Castelgomberto;Vicenza;6�098;x
-Castelguglielmo;Rovigo;1�646;x
-Castello di Godego;Treviso;7�013;x
-Castelmassa;Rovigo;4�291;x
-Castelnovo Bariano;Rovigo;2�931;x
-Castelnuovo del Garda;Verona;12�199;x
-Cavaion Veronese;Verona;5�471;x
-Cavallino-Treporti;Venezia;13�162;x
-Cavarzere;Venezia;14�816;x
-Cavaso del Tomba;Treviso;2�996;x
-Cazzano di Tramigna;Verona;1�555;x
-Ceggia;Venezia;6�213;x
-Cencenighe Agordino;Belluno;1�402;x
-Ceneselli;Rovigo;1�813;x
-Cerea;Verona;16�251;x
-Ceregnano;Rovigo;3�691;x
-Cerro Veronese;Verona;2�434;x
-Cervarese Santa Croce;Padova;5�698;x
-Cesiomaggiore;Belluno;4�145;x
-Cessalto;Treviso;3�834;x
-Chiampo;Vicenza;12�859;x
-Chiarano;Treviso;3�695;x
-Chies d'Alpago;Belluno;1�411;x
-Chioggia;Venezia;49�735;x
-Chiuppano;Vicenza;2�626;x
-Cibiana di Cadore;Belluno;423;x
-Cimadolmo;Treviso;3�413;x
-Cinto Caomaggiore;Venezia;3�285;x
-Cinto Euganeo;Padova;2�023;x
-Cison di Valmarino;Treviso;2�711;x
-Cittadella;Padova;19�956;x
-Codevigo;Padova;6�453;x
-Codogn�;Treviso;5�311;x
-Cogollo del Cengio;Vicenza;3�390;x
-Colceresa;Vicenza;6�113;x
-Colle Santa Lucia;Belluno;391;x
-Colle Umberto;Treviso;5�177;x
-Cologna Veneta;Verona;8�607;x
-Colognola ai Colli;Verona;8�141;x
-Comelico Superiore;Belluno;2�341;x
-Cona;Venezia;3�175;x
-Concamarise;Verona;1�078;x
-Concordia Sagittaria;Venezia;10�640;x
-Conegliano;Treviso;34�428;x
-Conselve;Padova;10�293;x
-Corbola;Rovigo;2�514;x
-Cordignano;Treviso;7�096;x
-Cornedo Vicentino;Vicenza;11�939;x
-Cornuda;Treviso;6�217;x
-Correzzola;Padova;5�488;x
-Cortina d'Ampezzo;Belluno;5�890;x
-Costa di Rovigo;Rovigo;2�683;x
-Costabissara;Vicenza;7�161;x
-Costermano sul Garda;Verona;3�586;x
-Creazzo;Vicenza;11�038;x
-Crespadoro;Vicenza;1�452;x
-Crespino;Rovigo;1�970;x
-Crocetta del Montello;Treviso;6�029;x
-Curtarolo;Padova;7�175;x
-Danta di Cadore;Belluno;514;x
-Dolc�;Verona;2�573;x
-Dolo;Venezia;14�982;x
-Domegge di Cadore;Belluno;2�575;x
-Due Carrare;Padova;8�943;x
-Dueville;Vicenza;13�888;x
-Enego;Vicenza;1�825;x
-Eraclea;Venezia;12�689;x
-Erb�;Verona;1�841;x
-Erbezzo;Verona;767;x
-Este;Padova;16�576;x
-Falcade;Belluno;2�055;x
-Fara Vicentino;Vicenza;3�943;x
-Farra di Soligo;Treviso;8�956;x
-Feltre;Belluno;20�525;x
-Ferrara di Monte Baldo;Verona;221;x
-Ficarolo;Rovigo;2�609;x
-Fiesso d'Artico;Venezia;7�728;x
-Fiesso Umbertiano;Rovigo;4�275;x
-Follina;Treviso;3�939;x
-Fontanelle;Treviso;5�804;x
-Fontaniva;Padova;8�168;x
-Fonte;Treviso;6�019;x
-Fonzaso;Belluno;3�322;x
-Fossalta di Piave;Venezia;4�214;x
-Fossalta di Portogruaro;Venezia;6�075;x
-Fosso�;Venezia;6�786;x
-Foza;Vicenza;717;x
-Frassinelle Polesine;Rovigo;1�529;x
-Fratta Polesine;Rovigo;2�782;x
-Fregona;Treviso;3�169;x
-Fumane;Verona;4�151;x
-Gaiarine;Treviso;6�136;x
-Gaiba;Rovigo;1�094;x
-Galliera Veneta;Padova;7�042;x
-Gallio;Vicenza;2�413;x
-Galzignano Terme;Padova;4�416;x
-Gambellara;Vicenza;3�319;x
-Gambugliano;Vicenza;851;x
-Garda;Verona;3�978;x
-Gavello;Rovigo;1�605;x
-Gazzo;Padova;4�291;x
-Gazzo Veronese;Verona;5�477;x
-Giacciano con Baruchella;Rovigo;2�182;x
-Giavera del Montello;Treviso;5�144;x
-Godega di Sant'Urbano;Treviso;6�112;x
-Gorgo al Monticano;Treviso;4�182;x
-Gosaldo;Belluno;723;x
-Grantorto;Padova;4�661;x
-Granze;Padova;2�022;x
-Grezzana;Verona;10�827;x
-Grisignano di Zocco;Vicenza;4�292;x
-Gruaro;Venezia;2�802;x
-Grumolo delle Abbadesse;Vicenza;3�741;x
-Guarda Veneta;Rovigo;1�185;x
-Illasi;Verona;5�302;x
-Isola della Scala;Verona;11�457;x
-Isola Rizza;Verona;3�255;x
-Isola Vicentina;Vicenza;9�639;x
-Istrana;Treviso;9�041;x
-Jesolo;Venezia;24�479;x
-La Valle Agordina;Belluno;1�150;x
-Laghi;Vicenza;123;x
-Lamon;Belluno;3�046;x
-Lastebasse;Vicenza;229;x
-Lavagno;Verona;8�101;x
-Lazise;Verona;6�695;x
-Legnago;Verona;24�992;x
-Legnaro;Padova;8�544;
-Lendinara;Rovigo;12�024;
-Limana;Belluno;5�061;
-Limena;Padova;7�699;
-Livinallongo del Col di Lana;Belluno;1�384;
-Longare;Vicenza;5�654;
-Longarone;Belluno;5�555;
-Lonigo;Vicenza;15�581;
-Loreggia;Padova;7�297;
-Lorenzago di Cadore;Belluno;567;
-Loreo;Rovigo;3�568;
-Loria;Treviso;9�097;
-Lozzo Atestino;Padova;3�179;
-Lozzo di Cadore;Belluno;1�497;
-Lugo di Vicenza;Vicenza;3�739;
-Lusia;Rovigo;3�595;
-Lusiana Conco;Vicenza;4�946;
-Malcesine;Verona;3�685;
-Malo;Vicenza;14�641;
-Mansu�;Treviso;4�974;
-Marano di Valpolicella;Verona;3�083;
-Marano Vicentino;Vicenza;9�662;
-Marcon;Venezia;16�215;
-Mareno di Piave;Treviso;9�667;
-Marostica;Vicenza;13�783;
-Martellago;Venezia;21�171;
-Maser;Treviso;4�962;
-Maser� di Padova;Padova;9�045;
-Maserada sul Piave;Treviso;9�293;
-Masi;Padova;1�782;
-Massanzago;Padova;5�872;
-Meduna di Livenza;Treviso;2�947;
-Megliadino San Vitale;Padova;1�977;
-Melara;Rovigo;1�870;
-Meolo;Venezia;6�465;
-Merlara;Padova;2�831;
-Mestrino;Padova;10�961;
-Mezzane di Sotto;Verona;2�463;
-Miane;Treviso;3�436;
-Minerbe;Verona;4�667;
-Mira;Venezia;38�552;
-Mirano;Venezia;26�456;
-Mogliano Veneto;Treviso;27�608;
-Monastier di Treviso;Treviso;4�087;
-Monfumo;Treviso;1�442;
-Monselice;Padova;17�451;
-Montagnana;Padova;9�421;
-Monte di Malo;Vicenza;2�887;
-Montebello Vicentino;Vicenza;6�531;
-Montebelluna;Treviso;30�765;
-Montecchia di Crosara;Verona;4�462;
-Montecchio Maggiore;Vicenza;23�315;
-Montecchio Precalcino;Vicenza;4�988;
-Monteforte d'Alpone;Verona;8�410;
-Montegalda;Vicenza;3�343;
-Montegaldella;Vicenza;1�788;
-Montegrotto Terme;Padova;11�074;
-Monteviale;Vicenza;2�600;
-Monticello Conte Otto;Vicenza;9�156;
-Montorso Vicentino;Vicenza;3�179;
-Morgano;Treviso;4�362;
-Moriago della Battaglia;Treviso;2�785;
-Motta di Livenza;Treviso;10�681;
-Mozzecane;Verona;7�005;
-Musile di Piave;Venezia;11�518;
-Mussolente;Vicenza;7�653;
-Nanto;Vicenza;3�082;
-Negrar di Valpolicella;Verona;16�935;
-Nervesa della Battaglia;Treviso;6�854;
-Noale;Venezia;15�708;
-Nogara;Verona;8�574;
-Nogarole Rocca;Verona;3�455;
-Nogarole Vicentino;Vicenza;1�136;
-Nove;Vicenza;5�069;
-Noventa di Piave;Venezia;6�843;
-Noventa Padovana;Padova;10�881;
-Noventa Vicentina;Vicenza;8�810;
-Occhiobello;Rovigo;11�351;
-Oderzo;Treviso;20�068;
-Oppeano;Verona;9�427;
-Orgiano;Vicenza;3�151;
-Ormelle;Treviso;4�464;
-Orsago;Treviso;3�917;
-Ospedaletto Euganeo;Padova;5�876;
-Ospitale di Cadore;Belluno;326;
-Padova;Padova;206�192;
-Paese;Treviso;21�432;
-Pal�;Verona;1�284;
-Papozze;Rovigo;1�645;
-Pastrengo;Verona;2�893;
-Pedavena;Belluno;4�429;
-Pedemonte;Vicenza;768;
-Pederobba;Treviso;7�573;
-Perarolo di Cadore;Belluno;383;
-Pernumia;Padova;3�915;
-Pescantina;Verona;16�326;
-Peschiera del Garda;Verona;9�598;
-Pettorazza Grimani;Rovigo;1�669;
-Piacenza d'Adige;Padova;1�379;
-Pianezze;Vicenza;2�060;
-Pianiga;Venezia;11�968;
-Piazzola sul Brenta;Padova;11�130;
-Pieve del Grappa;Treviso;6�706;
-Pieve di Cadore;Belluno;3�956;
-Pieve di Soligo;Treviso;12�057;
-Pincara;Rovigo;1�262;
-Piombino Dese;Padova;9�276;
-Piove di Sacco;Padova;19�067;
-Piovene Rocchette;Vicenza;8�295;
-Pojana Maggiore;Vicenza;4�459;
-Polesella;Rovigo;4�079;
-Polverara;Padova;3�104;
-Ponso;Padova;2�449;
-Ponte di Piave;Treviso;8�312;
-Ponte nelle Alpi;Belluno;8�387;
-Ponte San Nicolo�;Padova;13�237;
-Pontecchio Polesine;Rovigo;2�078;
-Pontelongo;Padova;3�902;
-Ponzano Veneto;Treviso;12�194;
-Porto Tolle;Rovigo;10�058;
-Porto Viro;Rovigo;14�645;
-Portobuffol�;Treviso;790;
-Portogruaro;Venezia;25�140;
-Posina;Vicenza;577;
-Possagno;Treviso;2�195;
-Pove del Grappa;Vicenza;3�093;
-Povegliano;Treviso;5�052;
-Povegliano Veronese;Verona;7�064;
-Pozzoleone;Vicenza;2�793;
-Pozzonovo;Padova;3�653;
-Pramaggiore;Venezia;4�640;
-Preganziol;Treviso;16�772;
-Pressana;Verona;2�564;
-Quarto d'Altino;Venezia;8�199;
-Quero Vas;Belluno;3�338;
-Quinto di Treviso;Treviso;9�745;
-Quinto Vicentino;Vicenza;5�694;
-Recoaro Terme;Vicenza;6�764;
-Refrontolo;Treviso;1�824;
-Resana;Treviso;9�290;
-Revine Lago;Treviso;2�241;
-Riese Pio X;Treviso;10�858;
-Rivamonte Agordino;Belluno;666;
-Rivoli Veronese;Verona;2�127;
-Roana;Vicenza;4�317;
-Rocca Pietore;Belluno;1�322;
-Romano d'Ezzelino;Vicenza;14�484;
-Ronc�;Verona;3�726;
-Roncade;Treviso;14�037;
-Ronco all'Adige;Verona;6�179;
-Ros�;Vicenza;14�071;
-Rosolina;Rovigo;6�481;
-Rossano Veneto;Vicenza;7�922;
-Rotzo;Vicenza;638;
-Roverchiara;Verona;2�740;
-Rover� Veronese;Verona;2�127;
-Roveredo di Gu�;Verona;1�541;
-Rovigo;Rovigo;50�164;
-Rovolon;Padova;4�777;
-Rubano;Padova;15�669;
-Saccolongo;Padova;4�934;
-Salara;Rovigo;1�214;
-Salcedo;Vicenza;1�038;
-Salgareda;Treviso;6�599;
-Salizzole;Verona;3�745;
-Salzano;Venezia;12�678;
-San Bellino;Rovigo;1�156;
-San Biagio di Callalta;Treviso;13�039;
-San Bonifacio;Verona;20�275;
-San Don� di Piave;Venezia;40�646;
-San Fior;Treviso;6�813;
-San Giorgio delle Pertiche;Padova;9�979;
-San Giorgio in Bosco;Padova;6�244;
-San Giovanni Ilarione;Verona;5�111;
-San Giovanni Lupatoto;Verona;24�148;
-San Gregorio nelle Alpi;Belluno;1�607;
-San Martino Buon Albergo;Verona;14�283;
-San Martino di Lupari;Padova;13�052;
-San Martino di Venezze;Rovigo;4�035;
-San Mauro di Saline;Verona;553;
-San Michele al Tagliamento;Venezia;12�028;
-San Nicolo� di Comelico;Belluno;405;
-San Pietro di Cadore;Belluno;1�690;
-San Pietro di Feletto;Treviso;5�355;
-San Pietro di Morubio;Verona;3�024;
-San Pietro in Cariano;Verona;12�930;
-San Pietro in Gu;Padova;4�576;
-San Pietro Mussolino;Vicenza;1�613;
-San Pietro Viminario;Padova;3�003;
-San Polo di Piave;Treviso;4�929;
-San Tomaso Agordino;Belluno;683;
-San Vendemiano;Treviso;10�080;
-San Vito di Cadore;Belluno;1�813;
-San Vito di Leguzzano;Vicenza;3�584;
-San Zeno di Montagna;Verona;1�367;
-San Zenone degli Ezzelini;Treviso;7�391;
-Sandrigo;Vicenza;8�392;
-Sanguinetto;Verona;4�140;
-Santa Giustina;Belluno;6�767;
-Santa Giustina in Colle;Padova;7�131;
-Santa Lucia di Piave;Treviso;9�081;
-Santa Maria di Sala;Venezia;17�295;
-Sant'Ambrogio di Valpolicella;Verona;11�422;
-Sant'Angelo di Piove di Sacco;Padova;7�211;
-Sant'Anna d'Alfaedo;Verona;2�564;
-Sant'Elena;Padova;2�430;
-Santo Stefano di Cadore;Belluno;2�663;
-San Stino di Livenza;Venezia;13�042;
-Santorso;Vicenza;5�746;
-Sant'Urbano;Padova;2�162;
-Saonara;Padova;10�043;
-Sarcedo;Vicenza;5�303;
-Sarego;Vicenza;6�641;
-Sarmede;Treviso;3�174;
-Schiavon;Vicenza;2�600;
-Schio;Vicenza;39�131;
-Scorz�;Venezia;18�904;
-Sedico;Belluno;9�906;
-Segusino;Treviso;1�941;
-Selva di Cadore;Belluno;517;
-Selva di Progno;Verona;934;
-Selvazzano Dentro;Padova;22�145;
-Seren del Grappa;Belluno;2�557;
-Sernaglia della Battaglia;Treviso;6�325;
-Silea;Treviso;9�923;
-Soave;Verona;6�908;
-Solagna;Vicenza;1�895;
-Solesino;Padova;7�180;
-Sommacampagna;Verona;14�615;
-Sona;Verona;17�030;
-Sorg�;Verona;3�112;
-Sospirolo;Belluno;3�213;
-Sossano;Vicenza;4�401;
-Soverzene;Belluno;418;
-Sovizzo;Vicenza;7�034;
-Sovramonte;Belluno;1�514;
-Spinea;Venezia;26�862;
-Spresiano;Treviso;11�659;
-Stanghella;Padova;4�331;
-Stienta;Rovigo;3�329;
-Stra;Venezia;7�566;
-Susegana;Treviso;11�702;
-Taglio di Po;Rovigo;8�495;
-Taibon Agordino;Belluno;1�788;
-Tambre;Belluno;1�425;
-Tarzo;Treviso;4�583;
-Teglio Veneto;Venezia;2�325;
-Teolo;Padova;8�866;
-Terrassa Padovana;Padova;2�625;
-Terrazzo;Verona;2�290;
-Tezze sul Brenta;Vicenza;12�600;
-Thiene;Vicenza;23�254;
-Tombolo;Padova;8�227;
-Tonezza del Cimone;Vicenza;577;
-Torre di Mosto;Venezia;4�739;
-Torrebelvicino;Vicenza;5�989;
-Torreglia;Padova;6�206;
-Torri del Benaco;Verona;2�802;
-Torri di Quartesolo;Vicenza;11�755;
-Trebaseleghe;Padova;12�579;
-Trecenta;Rovigo;2�956;
-Tregnago;Verona;4�926;
-Trevenzuolo;Verona;2�731;
-Trevignano;Treviso;10�565;
-Treviso;Treviso;81�014;
-Tribano;Padova;4�431;
-Trissino;Vicenza;8�620;
-Urbana;Padova;2�186;
-Val di Zoldo;Belluno;3�464;
-Val Liona;Vicenza;3�047;
-Valbrenta;Vicenza;5�186;
-Valdagno;Vicenza;26�575;
-Valdastico;Vicenza;1�389;
-Valdobbiadene;Treviso;10�690;
-Valeggio sul Mincio;Verona;14�300;
-Vallada Agordina;Belluno;514;
-Valle di Cadore;Belluno;2�052;
-Valli del Pasubio;Vicenza;3�345;
-Vazzola;Treviso;7�009;
-Vedelago;Treviso;16�434;
-Veggiano;Padova;4�543;
-Velo d'Astico;Vicenza;2�400;
-Velo Veronese;Verona;781;
-Venezia;Venezia;261�362;
-Verona;Verona;252�520;
-Veronella;Verona;4�670;
-Vescovana;Padova;1�717;
-Vestenanova;Verona;2�618;
-Vicenza;Vicenza;111�500;
-Vidor;Treviso;3�769;
-Vigasio;Verona;9�438;
-Vighizzolo d'Este;Padova;935;
-Vigo di Cadore;Belluno;1�499;
-Vigodarzere;Padova;12�885;
-Vigonovo;Venezia;9�892;
-Vigonza;Padova;21�993;
-Villa Bartolomea;Verona;5�841;
-Villa del Conte;Padova;5�504;
-Villa Estense;Padova;2�322;
-Villadose;Rovigo;5�188;
-Villafranca di Verona;Verona;32�747;
-Villafranca Padovana;Padova;9�797;
-Villaga;Vicenza;1�963;
-Villamarzana;Rovigo;1�202;
-Villanova del Ghebbo;Rovigo;2�164;
-Villanova di Camposampiero;Padova;5�929;
-Villanova Marchesana;Rovigo;1�000;
-Villaverla;Vicenza;6�169;
-Villorba;Treviso;17�883;
-Vittorio Veneto;Treviso;28�656;
-Vo';Padova;3�417;
-Vodo di Cadore;Belluno;891;
-Volpago del Montello;Treviso;10�045;
-Voltago Agordino;Belluno;914;
-Zan�;Vicenza;6�642;
-Zenson di Piave;Treviso;1�783;
-Zermeghedo;Vicenza;1�358;
-Zero Branco;Treviso;10�986;
-Zevio;Verona;14�413;
-Zimella;Verona;4�834;
-Zopp� di Cadore;Belluno;265;
-Zovencedo;Vicenza;796;
-Zugliano;Vicenza;6�690;
+city,district,population,done
+Abano Terme,Padova,19�349,x
+Adria,Rovigo,20�233,x
+Affi,Verona,2�297,x
+Agna,Padova,3�400,x
+Agordo,Belluno,4�249,x
+Agugliaro,Vicenza,1�422,x
+Alano di Piave,Belluno,2�926,x
+Albaredo d'Adige,Verona,5�232,x
+Albettone,Vicenza,2�066,x
+Albignasego,Padova,23�464,x
+Alleghe,Belluno,1�331,x
+Alonte,Vicenza,1�647,x
+Alpago,Belluno,7�175,x
+Altavilla Vicentina,Vicenza,11�760,x
+Altissimo,Vicenza,2�266,x
+Altivole,Treviso,6�720,x
+Angiari,Verona,2�164,x
+Anguillara Veneta,Padova,4�594,x
+Annone Veneto,Venezia,3�976,x
+Arcade,Treviso,4�366,x
+Arcole,Verona,6�144,x
+Arcugnano,Vicenza,7�899,x
+Ariano nel Polesine,Rovigo,4�554,x
+Arqu� Petrarca,Padova,1�847,x
+Arqu� Polesine,Rovigo,2�811,x
+Arre,Padova,2�191,x
+Arsi�,Belluno,2�465,x
+Arsiero,Vicenza,3�303,x
+Arzergrande,Padova,4�682,x
+Arzignano,Vicenza,25�589,x
+Asiago,Vicenza,6�391,x
+Asigliano Veneto,Vicenza,877,x
+Asolo,Treviso,8�952,x
+Auronzo di Cadore,Belluno,3�453,x
+Badia Calavena,Verona,2�661,x
+Badia Polesine,Rovigo,10�536,x
+Bagnoli di Sopra,Padova,3�626,x
+Bagnolo di Po,Rovigo,1�374,x
+Baone,Padova,3�108,x
+Barbarano Mossano,Vicenza,6�352,x
+Barbona,Padova,733,x
+Bardolino,Verona,6�714,x
+Bassano del Grappa,Vicenza,42�984,x
+Battaglia Terme,Padova,3�933,x
+Belfiore,Verona,3�008,x
+Belluno,Belluno,35�591,x
+Bergantino,Rovigo,2�626,x
+Bevilacqua,Verona,1�787,x
+Boara Pisani,Padova,2�611,x
+Bolzano Vicentino,Vicenza,6�509,x
+Bonavigo,Verona,2�024,x
+Borca di Cadore,Belluno,818,x
+Borgoricco,Padova,8�478,x
+Borgo Valbelluna,Belluno,13�747,x
+Borgo Veneto,Padova,7�000,x
+Borso del Grappa,Treviso,5�913,x
+Bosaro,Rovigo,1�508,x
+Boschi Sant'Anna,Verona,1�454,x
+Bosco Chiesanuova,Verona,3�546,x
+Bovolenta,Padova,3�349,x
+Bovolone,Verona,15�846,x
+Breda di Piave,Treviso,7�750,x
+Breganze,Vicenza,8�693,x
+Brendola,Vicenza,6�722,x
+Brentino Belluno,Verona,1�406,x
+Brenzone sul Garda,Verona,2�496,x
+Bressanvido,Vicenza,3�108,x
+Brogliano,Vicenza,3�900,x
+Brugine,Padova,6�812,x
+Bussolengo,Verona,19�483,x
+Buttapietra,Verona,6�867,x
+Cadoneghe,Padova,15�964,x
+Caerano di San Marco,Treviso,7�941,x
+Calalzo di Cadore,Belluno,2�173,x
+Caldiero,Verona,7�374,x
+Caldogno,Vicenza,11�221,x
+Calto,Rovigo,819,x
+Caltrano,Vicenza,2�607,x
+Calvene,Vicenza,1�323,x
+Camisano Vicentino,Vicenza,10�624,x
+Campagna Lupia,Venezia,6�936,x
+Campiglia dei Berici,Vicenza,1�791,x
+Campo San Martino,Padova,5�724,x
+Campodarsego,Padova,14�169,x
+Campodoro,Padova,2�725,x
+Campolongo Maggiore,Venezia,10�342,x
+Camponogara,Venezia,12�920,x
+Camposampiero,Padova,12�019,x
+Canale d'Agordo,Belluno,1�172,x
+Canaro,Rovigo,2�853,x
+Canda,Rovigo,1�007,x
+Candiana,Padova,2�468,x
+Caorle,Venezia,11�793,x
+Cappella Maggiore,Treviso,4�677,x
+Caprino Veronese,Verona,8�065,x
+Carbonera,Treviso,11�135,x
+Carceri,Padova,1�600,x
+Carmignano di Brenta,Padova,7�540,x
+Carr�,Vicenza,3�647,x
+Cartigliano,Vicenza,3�802,x
+Cartura,Padova,4�623,x
+Casale di Scodosia,Padova,4�866,x
+Casale sul Sile,Treviso,12�722,x
+Casaleone,Verona,5�939,x
+Casalserugo,Padova,5�452,x
+Casier,Treviso,11�018,x
+Cassola,Vicenza,14�128,x
+Castagnaro,Verona,3�930,x
+Castegnero,Vicenza,2�857,x
+Castel d'Azzano,Verona,11�739,x
+Castelbaldo,Padova,1�625,x
+Castelcucco,Treviso,2�189,x
+Castelfranco Veneto,Treviso,32�894,x
+Castelgomberto,Vicenza,6�098,x
+Castelguglielmo,Rovigo,1�646,x
+Castello di Godego,Treviso,7�013,x
+Castelmassa,Rovigo,4�291,x
+Castelnovo Bariano,Rovigo,2�931,x
+Castelnuovo del Garda,Verona,12�199,x
+Cavaion Veronese,Verona,5�471,x
+Cavallino-Treporti,Venezia,13�162,x
+Cavarzere,Venezia,14�816,x
+Cavaso del Tomba,Treviso,2�996,x
+Cazzano di Tramigna,Verona,1�555,x
+Ceggia,Venezia,6�213,x
+Cencenighe Agordino,Belluno,1�402,x
+Ceneselli,Rovigo,1�813,x
+Cerea,Verona,16�251,x
+Ceregnano,Rovigo,3�691,x
+Cerro Veronese,Verona,2�434,x
+Cervarese Santa Croce,Padova,5�698,x
+Cesiomaggiore,Belluno,4�145,x
+Cessalto,Treviso,3�834,x
+Chiampo,Vicenza,12�859,x
+Chiarano,Treviso,3�695,x
+Chies d'Alpago,Belluno,1�411,x
+Chioggia,Venezia,49�735,x
+Chiuppano,Vicenza,2�626,x
+Cibiana di Cadore,Belluno,423,x
+Cimadolmo,Treviso,3�413,x
+Cinto Caomaggiore,Venezia,3�285,x
+Cinto Euganeo,Padova,2�023,x
+Cison di Valmarino,Treviso,2�711,x
+Cittadella,Padova,19�956,x
+Codevigo,Padova,6�453,x
+Codogn�,Treviso,5�311,x
+Cogollo del Cengio,Vicenza,3�390,x
+Colceresa,Vicenza,6�113,x
+Colle Santa Lucia,Belluno,391,x
+Colle Umberto,Treviso,5�177,x
+Cologna Veneta,Verona,8�607,x
+Colognola ai Colli,Verona,8�141,x
+Comelico Superiore,Belluno,2�341,x
+Cona,Venezia,3�175,x
+Concamarise,Verona,1�078,x
+Concordia Sagittaria,Venezia,10�640,x
+Conegliano,Treviso,34�428,x
+Conselve,Padova,10�293,x
+Corbola,Rovigo,2�514,x
+Cordignano,Treviso,7�096,x
+Cornedo Vicentino,Vicenza,11�939,x
+Cornuda,Treviso,6�217,x
+Correzzola,Padova,5�488,x
+Cortina d'Ampezzo,Belluno,5�890,x
+Costa di Rovigo,Rovigo,2�683,x
+Costabissara,Vicenza,7�161,x
+Costermano sul Garda,Verona,3�586,x
+Creazzo,Vicenza,11�038,x
+Crespadoro,Vicenza,1�452,x
+Crespino,Rovigo,1�970,x
+Crocetta del Montello,Treviso,6�029,x
+Curtarolo,Padova,7�175,x
+Danta di Cadore,Belluno,514,x
+Dolc�,Verona,2�573,x
+Dolo,Venezia,14�982,x
+Domegge di Cadore,Belluno,2�575,x
+Due Carrare,Padova,8�943,x
+Dueville,Vicenza,13�888,x
+Enego,Vicenza,1�825,x
+Eraclea,Venezia,12�689,x
+Erb�,Verona,1�841,x
+Erbezzo,Verona,767,x
+Este,Padova,16�576,x
+Falcade,Belluno,2�055,x
+Fara Vicentino,Vicenza,3�943,x
+Farra di Soligo,Treviso,8�956,x
+Feltre,Belluno,20�525,x
+Ferrara di Monte Baldo,Verona,221,x
+Ficarolo,Rovigo,2�609,x
+Fiesso d'Artico,Venezia,7�728,x
+Fiesso Umbertiano,Rovigo,4�275,x
+Follina,Treviso,3�939,x
+Fontanelle,Treviso,5�804,x
+Fontaniva,Padova,8�168,x
+Fonte,Treviso,6�019,x
+Fonzaso,Belluno,3�322,x
+Fossalta di Piave,Venezia,4�214,x
+Fossalta di Portogruaro,Venezia,6�075,x
+Fosso�,Venezia,6�786,x
+Foza,Vicenza,717,x
+Frassinelle Polesine,Rovigo,1�529,x
+Fratta Polesine,Rovigo,2�782,x
+Fregona,Treviso,3�169,x
+Fumane,Verona,4�151,x
+Gaiarine,Treviso,6�136,x
+Gaiba,Rovigo,1�094,x
+Galliera Veneta,Padova,7�042,x
+Gallio,Vicenza,2�413,x
+Galzignano Terme,Padova,4�416,x
+Gambellara,Vicenza,3�319,x
+Gambugliano,Vicenza,851,x
+Garda,Verona,3�978,x
+Gavello,Rovigo,1�605,x
+Gazzo,Padova,4�291,x
+Gazzo Veronese,Verona,5�477,x
+Giacciano con Baruchella,Rovigo,2�182,x
+Giavera del Montello,Treviso,5�144,x
+Godega di Sant'Urbano,Treviso,6�112,x
+Gorgo al Monticano,Treviso,4�182,x
+Gosaldo,Belluno,723,x
+Grantorto,Padova,4�661,x
+Granze,Padova,2�022,x
+Grezzana,Verona,10�827,x
+Grisignano di Zocco,Vicenza,4�292,x
+Gruaro,Venezia,2�802,x
+Grumolo delle Abbadesse,Vicenza,3�741,x
+Guarda Veneta,Rovigo,1�185,x
+Illasi,Verona,5�302,x
+Isola della Scala,Verona,11�457,x
+Isola Rizza,Verona,3�255,x
+Isola Vicentina,Vicenza,9�639,x
+Istrana,Treviso,9�041,x
+Jesolo,Venezia,24�479,x
+La Valle Agordina,Belluno,1�150,x
+Laghi,Vicenza,123,x
+Lamon,Belluno,3�046,x
+Lastebasse,Vicenza,229,x
+Lavagno,Verona,8�101,x
+Lazise,Verona,6�695,x
+Legnago,Verona,24�992,x
+Legnaro,Padova,8�544,x
+Lendinara,Rovigo,12�024,x
+Limana,Belluno,5�061,x
+Limena,Padova,7�699,x
+Livinallongo del Col di Lana,Belluno,1�384,x
+Longare,Vicenza,5�654,x
+Longarone,Belluno,5�555,x
+Lonigo,Vicenza,15�581,x
+Loreggia,Padova,7�297,x
+Lorenzago di Cadore,Belluno,567,x
+Loreo,Rovigo,3�568,x
+Loria,Treviso,9�097,x
+Lozzo Atestino,Padova,3�179,x
+Lozzo di Cadore,Belluno,1�497,x
+Lugo di Vicenza,Vicenza,3�739,x
+Lusia,Rovigo,3�595,x
+Lusiana Conco,Vicenza,4�946,x
+Malcesine,Verona,3�685,x
+Malo,Vicenza,14�641,x
+Mansu�,Treviso,4�974,x
+Marano di Valpolicella,Verona,3�083,x
+Marano Vicentino,Vicenza,9�662,x
+Marcon,Venezia,16�215,x
+Mareno di Piave,Treviso,9�667,x
+Marostica,Vicenza,13�783,x
+Martellago,Venezia,21�171,x
+Maser,Treviso,4�962,x
+Maser� di Padova,Padova,9�045,x
+Maserada sul Piave,Treviso,9�293,x
+Masi,Padova,1�782,x
+Massanzago,Padova,5�872,x
+Meduna di Livenza,Treviso,2�947,x
+Megliadino San Vitale,Padova,1�977,x
+Melara,Rovigo,1�870,x
+Meolo,Venezia,6�465,x
+Merlara,Padova,2�831,x
+Mestrino,Padova,10�961,x
+Mezzane di Sotto,Verona,2�463,x
+Miane,Treviso,3�436,x
+Minerbe,Verona,4�667,x
+Mira,Venezia,38�552,x
+Mirano,Venezia,26�456,x
+Mogliano Veneto,Treviso,27�608,x
+Monastier di Treviso,Treviso,4�087,x
+Monfumo,Treviso,1�442,x
+Monselice,Padova,17�451,x
+Montagnana,Padova,9�421,x
+Monte di Malo,Vicenza,2�887,x
+Montebello Vicentino,Vicenza,6�531,x
+Montebelluna,Treviso,30�765,x
+Montecchia di Crosara,Verona,4�462,x
+Montecchio Maggiore,Vicenza,23�315,x
+Montecchio Precalcino,Vicenza,4�988,x
+Monteforte d'Alpone,Verona,8�410,x
+Montegalda,Vicenza,3�343,x
+Montegaldella,Vicenza,1�788,x
+Montegrotto Terme,Padova,11�074,x
+Monteviale,Vicenza,2�600,x
+Monticello Conte Otto,Vicenza,9�156,x
+Montorso Vicentino,Vicenza,3�179,
+Morgano,Treviso,4�362,
+Moriago della Battaglia,Treviso,2�785,
+Motta di Livenza,Treviso,10�681,
+Mozzecane,Verona,7�005,
+Musile di Piave,Venezia,11�518,
+Mussolente,Vicenza,7�653,
+Nanto,Vicenza,3�082,
+Negrar di Valpolicella,Verona,16�935,
+Nervesa della Battaglia,Treviso,6�854,
+Noale,Venezia,15�708,
+Nogara,Verona,8�574,
+Nogarole Rocca,Verona,3�455,
+Nogarole Vicentino,Vicenza,1�136,
+Nove,Vicenza,5�069,
+Noventa di Piave,Venezia,6�843,
+Noventa Padovana,Padova,10�881,
+Noventa Vicentina,Vicenza,8�810,
+Occhiobello,Rovigo,11�351,
+Oderzo,Treviso,20�068,
+Oppeano,Verona,9�427,
+Orgiano,Vicenza,3�151,
+Ormelle,Treviso,4�464,
+Orsago,Treviso,3�917,
+Ospedaletto Euganeo,Padova,5�876,
+Ospitale di Cadore,Belluno,326,
+Padova,Padova,206�192,
+Paese,Treviso,21�432,
+Pal�,Verona,1�284,
+Papozze,Rovigo,1�645,
+Pastrengo,Verona,2�893,
+Pedavena,Belluno,4�429,
+Pedemonte,Vicenza,768,
+Pederobba,Treviso,7�573,
+Perarolo di Cadore,Belluno,383,
+Pernumia,Padova,3�915,
+Pescantina,Verona,16�326,
+Peschiera del Garda,Verona,9�598,
+Pettorazza Grimani,Rovigo,1�669,
+Piacenza d'Adige,Padova,1�379,
+Pianezze,Vicenza,2�060,
+Pianiga,Venezia,11�968,
+Piazzola sul Brenta,Padova,11�130,
+Pieve del Grappa,Treviso,6�706,
+Pieve di Cadore,Belluno,3�956,
+Pieve di Soligo,Treviso,12�057,
+Pincara,Rovigo,1�262,
+Piombino Dese,Padova,9�276,
+Piove di Sacco,Padova,19�067,
+Piovene Rocchette,Vicenza,8�295,
+Pojana Maggiore,Vicenza,4�459,
+Polesella,Rovigo,4�079,
+Polverara,Padova,3�104,
+Ponso,Padova,2�449,
+Ponte di Piave,Treviso,8�312,
+Ponte nelle Alpi,Belluno,8�387,
+Ponte San Nicolo�,Padova,13�237,
+Pontecchio Polesine,Rovigo,2�078,
+Pontelongo,Padova,3�902,
+Ponzano Veneto,Treviso,12�194,
+Porto Tolle,Rovigo,10�058,
+Porto Viro,Rovigo,14�645,
+Portobuffol�,Treviso,790,
+Portogruaro,Venezia,25�140,
+Posina,Vicenza,577,
+Possagno,Treviso,2�195,
+Pove del Grappa,Vicenza,3�093,
+Povegliano,Treviso,5�052,
+Povegliano Veronese,Verona,7�064,
+Pozzoleone,Vicenza,2�793,
+Pozzonovo,Padova,3�653,
+Pramaggiore,Venezia,4�640,
+Preganziol,Treviso,16�772,
+Pressana,Verona,2�564,
+Quarto d'Altino,Venezia,8�199,
+Quero Vas,Belluno,3�338,
+Quinto di Treviso,Treviso,9�745,
+Quinto Vicentino,Vicenza,5�694,
+Recoaro Terme,Vicenza,6�764,
+Refrontolo,Treviso,1�824,
+Resana,Treviso,9�290,
+Revine Lago,Treviso,2�241,
+Riese Pio X,Treviso,10�858,
+Rivamonte Agordino,Belluno,666,
+Rivoli Veronese,Verona,2�127,
+Roana,Vicenza,4�317,
+Rocca Pietore,Belluno,1�322,
+Romano d'Ezzelino,Vicenza,14�484,
+Ronc�,Verona,3�726,
+Roncade,Treviso,14�037,
+Ronco all'Adige,Verona,6�179,
+Ros�,Vicenza,14�071,
+Rosolina,Rovigo,6�481,
+Rossano Veneto,Vicenza,7�922,
+Rotzo,Vicenza,638,
+Roverchiara,Verona,2�740,
+Rover� Veronese,Verona,2�127,
+Roveredo di Gu�,Verona,1�541,
+Rovigo,Rovigo,50�164,
+Rovolon,Padova,4�777,
+Rubano,Padova,15�669,
+Saccolongo,Padova,4�934,
+Salara,Rovigo,1�214,
+Salcedo,Vicenza,1�038,
+Salgareda,Treviso,6�599,
+Salizzole,Verona,3�745,
+Salzano,Venezia,12�678,
+San Bellino,Rovigo,1�156,
+San Biagio di Callalta,Treviso,13�039,
+San Bonifacio,Verona,20�275,
+San Don� di Piave,Venezia,40�646,
+San Fior,Treviso,6�813,
+San Giorgio delle Pertiche,Padova,9�979,
+San Giorgio in Bosco,Padova,6�244,
+San Giovanni Ilarione,Verona,5�111,
+San Giovanni Lupatoto,Verona,24�148,
+San Gregorio nelle Alpi,Belluno,1�607,
+San Martino Buon Albergo,Verona,14�283,
+San Martino di Lupari,Padova,13�052,
+San Martino di Venezze,Rovigo,4�035,
+San Mauro di Saline,Verona,553,
+San Michele al Tagliamento,Venezia,12�028,
+San Nicolo� di Comelico,Belluno,405,
+San Pietro di Cadore,Belluno,1�690,
+San Pietro di Feletto,Treviso,5�355,
+San Pietro di Morubio,Verona,3�024,
+San Pietro in Cariano,Verona,12�930,
+San Pietro in Gu,Padova,4�576,
+San Pietro Mussolino,Vicenza,1�613,
+San Pietro Viminario,Padova,3�003,
+San Polo di Piave,Treviso,4�929,
+San Tomaso Agordino,Belluno,683,
+San Vendemiano,Treviso,10�080,
+San Vito di Cadore,Belluno,1�813,
+San Vito di Leguzzano,Vicenza,3�584,
+San Zeno di Montagna,Verona,1�367,
+San Zenone degli Ezzelini,Treviso,7�391,
+Sandrigo,Vicenza,8�392,
+Sanguinetto,Verona,4�140,
+Santa Giustina,Belluno,6�767,
+Santa Giustina in Colle,Padova,7�131,
+Santa Lucia di Piave,Treviso,9�081,
+Santa Maria di Sala,Venezia,17�295,
+Sant'Ambrogio di Valpolicella,Verona,11�422,
+Sant'Angelo di Piove di Sacco,Padova,7�211,
+Sant'Anna d'Alfaedo,Verona,2�564,
+Sant'Elena,Padova,2�430,
+Santo Stefano di Cadore,Belluno,2�663,
+San Stino di Livenza,Venezia,13�042,
+Santorso,Vicenza,5�746,
+Sant'Urbano,Padova,2�162,
+Saonara,Padova,10�043,
+Sarcedo,Vicenza,5�303,
+Sarego,Vicenza,6�641,
+Sarmede,Treviso,3�174,
+Schiavon,Vicenza,2�600,
+Schio,Vicenza,39�131,
+Scorz�,Venezia,18�904,
+Sedico,Belluno,9�906,
+Segusino,Treviso,1�941,
+Selva di Cadore,Belluno,517,
+Selva di Progno,Verona,934,
+Selvazzano Dentro,Padova,22�145,
+Seren del Grappa,Belluno,2�557,
+Sernaglia della Battaglia,Treviso,6�325,
+Silea,Treviso,9�923,
+Soave,Verona,6�908,
+Solagna,Vicenza,1�895,
+Solesino,Padova,7�180,
+Sommacampagna,Verona,14�615,
+Sona,Verona,17�030,
+Sorg�,Verona,3�112,
+Sospirolo,Belluno,3�213,
+Sossano,Vicenza,4�401,
+Soverzene,Belluno,418,
+Sovizzo,Vicenza,7�034,
+Sovramonte,Belluno,1�514,
+Spinea,Venezia,26�862,
+Spresiano,Treviso,11�659,
+Stanghella,Padova,4�331,
+Stienta,Rovigo,3�329,
+Stra,Venezia,7�566,
+Susegana,Treviso,11�702,
+Taglio di Po,Rovigo,8�495,
+Taibon Agordino,Belluno,1�788,
+Tambre,Belluno,1�425,
+Tarzo,Treviso,4�583,
+Teglio Veneto,Venezia,2�325,
+Teolo,Padova,8�866,
+Terrassa Padovana,Padova,2�625,
+Terrazzo,Verona,2�290,
+Tezze sul Brenta,Vicenza,12�600,
+Thiene,Vicenza,23�254,
+Tombolo,Padova,8�227,
+Tonezza del Cimone,Vicenza,577,
+Torre di Mosto,Venezia,4�739,
+Torrebelvicino,Vicenza,5�989,
+Torreglia,Padova,6�206,
+Torri del Benaco,Verona,2�802,
+Torri di Quartesolo,Vicenza,11�755,
+Trebaseleghe,Padova,12�579,
+Trecenta,Rovigo,2�956,
+Tregnago,Verona,4�926,
+Trevenzuolo,Verona,2�731,
+Trevignano,Treviso,10�565,
+Treviso,Treviso,81�014,
+Tribano,Padova,4�431,
+Trissino,Vicenza,8�620,
+Urbana,Padova,2�186,
+Val di Zoldo,Belluno,3�464,
+Val Liona,Vicenza,3�047,
+Valbrenta,Vicenza,5�186,
+Valdagno,Vicenza,26�575,
+Valdastico,Vicenza,1�389,
+Valdobbiadene,Treviso,10�690,
+Valeggio sul Mincio,Verona,14�300,
+Vallada Agordina,Belluno,514,
+Valle di Cadore,Belluno,2�052,
+Valli del Pasubio,Vicenza,3�345,
+Vazzola,Treviso,7�009,
+Vedelago,Treviso,16�434,
+Veggiano,Padova,4�543,
+Velo d'Astico,Vicenza,2�400,
+Velo Veronese,Verona,781,
+Venezia,Venezia,261�362,
+Verona,Verona,252�520,
+Veronella,Verona,4�670,
+Vescovana,Padova,1�717,
+Vestenanova,Verona,2�618,
+Vicenza,Vicenza,111�500,
+Vidor,Treviso,3�769,
+Vigasio,Verona,9�438,
+Vighizzolo d'Este,Padova,935,
+Vigo di Cadore,Belluno,1�499,
+Vigodarzere,Padova,12�885,
+Vigonovo,Venezia,9�892,
+Vigonza,Padova,21�993,
+Villa Bartolomea,Verona,5�841,
+Villa del Conte,Padova,5�504,
+Villa Estense,Padova,2�322,
+Villadose,Rovigo,5�188,
+Villafranca di Verona,Verona,32�747,
+Villafranca Padovana,Padova,9�797,
+Villaga,Vicenza,1�963,
+Villamarzana,Rovigo,1�202,
+Villanova del Ghebbo,Rovigo,2�164,
+Villanova di Camposampiero,Padova,5�929,
+Villanova Marchesana,Rovigo,1�000,
+Villaverla,Vicenza,6�169,
+Villorba,Treviso,17�883,
+Vittorio Veneto,Treviso,28�656,
+Vo',Padova,3�417,
+Vodo di Cadore,Belluno,891,
+Volpago del Montello,Treviso,10�045,
+Voltago Agordino,Belluno,914,
+Zan�,Vicenza,6�642,
+Zenson di Piave,Treviso,1�783,
+Zermeghedo,Vicenza,1�358,
+Zero Branco,Treviso,10�986,
+Zevio,Verona,14�413,
+Zimella,Verona,4�834,
+Zopp� di Cadore,Belluno,265,
+Zovencedo,Vicenza,796,
+Zugliano,Vicenza,6�690,

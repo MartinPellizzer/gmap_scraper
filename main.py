@@ -65,7 +65,7 @@ def get_old_businesses_pandas():
 def get_cities():
 	global sep
 	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
 		return df['city'].to_list()
 	else: 
 		return []
@@ -74,7 +74,7 @@ def get_cities():
 def get_districts():
 	global sep
 	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
 		return df['district'].to_list()
 	else: 
 		return []
@@ -83,7 +83,7 @@ def get_districts():
 def get_done():
 	global sep
 	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=sep, encoding="ISO-8859-1")
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
 		return df['done'].to_list()
 	else: 
 		return []
@@ -150,7 +150,7 @@ def open_browser():
 	options = Options()
 	# options.add_argument('--headless')
 	options.add_argument('--disable-gpu')
-	driver = webdriver.Chrome('./driver/chromedriver', options=options)
+	driver = webdriver.Chrome('./chromedriver', options=options)
 	driver.maximize_window()
 	driver.get('https://www.google.com')
 	sleep(2)
@@ -314,7 +314,7 @@ def main():
 				break
 
 		with open('lista_comuni_veneto.csv', newline='') as f:
-			reader = csv.reader(f, delimiter=sep)
+			reader = csv.reader(f, delimiter=',')
 			rows = []
 			for row in reader:
 				rows.append(row)
@@ -322,7 +322,7 @@ def main():
 		rows[i+1][3] = 'x'
 
 		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
-			writer = csv.writer(f, delimiter=sep)
+			writer = csv.writer(f, delimiter=',')
 			writer.writerows(rows)
 
 def main_test():
