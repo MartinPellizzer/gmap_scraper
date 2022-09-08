@@ -150,7 +150,7 @@ def open_browser():
 	options = Options()
 	# options.add_argument('--headless')
 	options.add_argument('--disable-gpu')
-	driver = webdriver.Chrome('./chromedriver', options=options)
+	driver = webdriver.Chrome(r'C:\drivers\chromedriver', options=options)
 	driver.maximize_window()
 	driver.get('https://www.google.com')
 	sleep(2)
