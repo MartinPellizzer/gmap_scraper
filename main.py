@@ -16,77 +16,85 @@ import sys
 import csv
 
 driver = None
+output_file = 'friuli.csv'
 
 sep = ';'
 
 VENETO_DISTRICTS = ['BL', 'PD', 'RO', 'TV', 'VE', 'VR', 'VI']
 
+zone = {
+	'region': 'friuli',
+	'provinces': [
+		{
+			'name': 'gorizia',
+			'abbreviation': 'GO',
+		},
+		{
+			'name': 'pordenone',
+			'abbreviation': 'PN',
+		},
+		{
+			'name': 'trieste',
+			'abbreviation': 'TS',
+		},
+		{
+			'name': 'udine',
+			'abbreviation': 'UD',
+		},
+	]
+}
+
+
+######################################################################################
+# PROVINCES
+######################################################################################
+def get_provinces_names():
+	names_list = []
+	for key, value in zone.items():
+		if key == 'provinces':
+			for province in value:
+				for key, value in province.items():
+					if key == 'name':
+						names_list.append(value)
+			break
+	return names_list
+
+
+def get_provinces_abbreviations():
+	abbreviations_list = []
+	for key, value in zone.items():
+		if key == 'provinces':
+			for province in value:
+				for key, value in province.items():
+					if key == 'abbreviation':
+						abbreviations_list.append(value)
+						break
+			break
+	return abbreviations_list
+
+
+def get_provinces():
+	rows = []
+	with open('friuli_provinces.csv', 'r', encoding="utf-8") as f:
+		reader = csv.reader(f, delimiter=';')
+		for i, row in enumerate(reader):
+			if i == 0: continue
+			rows.append(row)
+	return rows
+
 
 ######################################################################################
 # CSV
 ######################################################################################
-def create_csv():
-	with open('document.csv', 'w', encoding='utf-8') as f:
-		f.write(f'name{sep}address{sep}website{sep}phone{sep}emails{sep}district\n')
-
-
 def get_old_businesses():
 	global sep
-	if os.path.isfile('document.csv'):
-		names = []
-		with open('document.csv', 'r', encoding="utf-8") as f:
-			lines = f.readlines()
-			for line in lines:
-				names.append(line.split(sep)[0])
-		return names
-	else: 
-		return []
-		
-
-def get_old_businesses_pandas():
-	global sep
-	# names = []
-	# if os.path.isfile('document.csv'):
-	# 	for chunk in pandas.read_csv(
-	# 		'document.csv', 
-	# 		sep=sep,
-	# 		chunksize=100
-	# 	):
-	# 		names.append(chunk['name'].to_list())
-	
-	if os.path.isfile('document.csv'):
-		df = pandas.read_csv('document.csv', sep=sep, error_bad_lines=False, engine='python')
-		return df['name'].to_list()
-	else: 
-		create_csv()
-		return []
-		
-
-def get_cities():
-	global sep
-	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
-		return df['city'].to_list()
-	else: 
-		return []
-		
-
-def get_districts():
-	global sep
-	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
-		return df['district'].to_list()
-	else: 
-		return []
-
-		
-def get_done():
-	global sep
-	if os.path.isfile('lista_comuni_veneto.csv'):
-		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
-		return df['done'].to_list()
-	else: 
-		return []
+	global output_file
+	if not os.path.isfile(output_file): 
+		with open(output_file, 'w', encoding="utf-8") as f:
+			return []
+	else:
+		with open(output_file, 'r', encoding="utf-8") as f:
+			return [line.split(sep)[0] for line in f.readlines()]
 
 
 ######################################################################################
@@ -168,8 +176,8 @@ def scroll_down_up_down():
 	sleep(2)
 
 
-def search_map(business_type, cities, districts):
-	search_text = f'{business_type} {cities} {districts}'
+def search(business_type, province):
+	search_text = f'{business_type} {province}'
 	print(search_text.lower())
 	search_text = search_text.replace(' ', '+')
 	driver.get(f'https://www.google.com/maps/search/{search_text}')
@@ -240,10 +248,12 @@ def debug_info(name, address, district, website, phone, emails):
 
 
 def scrape_new_business():
+	print('Check Old Businesses...')
 	old_businesses = get_old_businesses()
 	business, label = find_new_business(old_businesses)
 
 	if not business:
+		print('No New Businesses!!!')
 		try: 
 			scroll_down_up_down()
 		except: 
@@ -263,11 +273,7 @@ def scrape_new_business():
 		return 'name_not_equal_label'
 
 	address = scrape_address(card_element)
-
 	district = scrape_district(card_element)
-	if district not in VENETO_DISTRICTS:
-		return 'external_district'
-
 	website = scrape_website(card_element)
 	phone = scrape_phone(card_element)
 	emails = scrape_emails(website)
@@ -284,82 +290,56 @@ def scrape_new_business():
 	string_to_write += f'{s_emails}{sep}'
 	string_to_write += f'{district}\n'
 
-	with open('document.csv', 'a', encoding="utf-8") as f:
+	with open(output_file, 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
 
 
 ######################################################################################
 # MAIN
-######################################################################################
+######################################################################################		
+def get_done():
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=';', encoding="ISO-8859-1")
+		return df['done'].to_list()
+	else: 
+		return []
 
 def main():
 	open_browser()
 
 	business_type = 'salumificio'
-	cities = get_cities()
-	districts = get_districts()
+	# provinces_names = get_provinces_names()
+	# provinces_abbreviations = get_provinces_abbreviations()
+	provinces = get_provinces()
+	
+	NUM_SCRAPES_X_SEARCH = 100
+	for i in range(len(provinces)):
+		province_name = provinces[i][0].strip()
+		province_abbr = provinces[i][1].strip()
+		province_done = provinces[i][2].strip()
 
-	NUM_SCRAPES_X_SEARCH = 50
-	for i in range(len(cities)):
-		done = get_done()
+		# if province_done == 'x': continue
 
-		if done[i] == 'x':
-			continue
-
-		search_map(business_type, cities[i], districts[i])
-
-		for _ in range(NUM_SCRAPES_X_SEARCH):
-			err = scrape_new_business()
-			if err == 'skip_search':
-				break
-
-		with open('lista_comuni_veneto.csv', newline='') as f:
-			reader = csv.reader(f, delimiter=',')
-			rows = []
-			for row in reader:
-				rows.append(row)
-
-		rows[i+1][3] = 'x'
-
-		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
-			writer = csv.writer(f, delimiter=',')
-			writer.writerows(rows)
-
-def main_test():
-	open_browser()
-
-	business_type = 'salumificio'
-	cities = get_cities()
-	districts = get_districts()
-
-	NUM_SCRAPES_X_SEARCH = 50
-	for i in range(len(cities)):
-		done = get_done()
-
-		# if num >= 3:
-		# 	break
-
-		if done[i] == 'x':
-			continue
-
-		search_map(business_type, cities[i], districts[i])
+		search(business_type, province_name)
 
 		for _ in range(NUM_SCRAPES_X_SEARCH):
 			err = scrape_new_business()
 			if err == 'skip_search':
 				break
+		
+		# with open('friuli_provinces.csv', 'r', newline='') as f:
+		# 	rows = [row for row in csv.reader(f, delimiter=';')]
+			
+		# rows[i+1][2] = 'x'
 
-		with open('lista_comuni_veneto.csv', newline='') as f:
-			reader = csv.reader(f, delimiter=sep)
-			rows = []
-			for row in reader:
-				rows.append(row)
+		# with open('friuli_provinces.csv', 'w', newline='') as f:
+		# 	writer = csv.writer(f, delimiter=';')
+		# 	writer.writerows(rows)
+	
+	driver.quit()
 
-		rows[i+1][3] = 'x'
+		
 
-		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
-			writer = csv.writer(f, delimiter=sep)
-			writer.writerows(rows)
 
 main()
 

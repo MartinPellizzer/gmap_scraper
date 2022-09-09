@@ -1,3 +1,109 @@
+
+def search_map(business_type, cities, districts):
+	search_text = f'{business_type} {cities} {districts}'
+	print(search_text.lower())
+	search_text = search_text.replace(' ', '+')
+	driver.get(f'https://www.google.com/maps/search/{search_text}')
+	
+def main_test():
+	open_browser()
+
+	business_type = 'salumificio'
+	cities = get_cities()
+	districts = get_districts()
+
+	NUM_SCRAPES_X_SEARCH = 50
+	for i in range(len(cities)):
+		done = get_done()
+
+		# if num >= 3:
+		# 	break
+
+		if done[i] == 'x':
+			continue
+
+		search_map(business_type, cities[i], districts[i])
+
+		for _ in range(NUM_SCRAPES_X_SEARCH):
+			err = scrape_new_business()
+			if err == 'skip_search':
+				break
+
+		with open('lista_comuni_veneto.csv', newline='') as f:
+			reader = csv.reader(f, delimiter=sep)
+			rows = []
+			for row in reader:
+				rows.append(row)
+
+		rows[i+1][3] = 'x'
+
+		with open('lista_comuni_veneto.csv', 'w', newline='') as f:
+			writer = csv.writer(f, delimiter=sep)
+			writer.writerows(rows)
+
+			
+def get_old_businesses():
+	global sep
+	if not os.path.isfile('document.csv'): return []
+
+	names = []
+	with open('document.csv', 'r', encoding="utf-8") as f:
+		lines = f.readlines()
+		for line in lines:
+			names.append(line.split(sep)[0])
+	return names
+
+def create_csv():
+	with open('document.csv', 'w', encoding='utf-8') as f:
+		f.write(f'name{sep}address{sep}website{sep}phone{sep}emails{sep}district\n')
+
+
+def get_cities():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
+		return df['city'].to_list()
+	else: 
+		return []
+		
+
+def get_districts():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
+		return df['district'].to_list()
+	else: 
+		return []
+
+		
+def get_done():
+	global sep
+	if os.path.isfile('lista_comuni_veneto.csv'):
+		df = pandas.read_csv('lista_comuni_veneto.csv', sep=',', encoding="ISO-8859-1")
+		return df['done'].to_list()
+	else: 
+		return []
+
+
+def get_old_businesses_pandas():
+	global sep
+	# names = []
+	# if os.path.isfile('document.csv'):
+	# 	for chunk in pandas.read_csv(
+	# 		'document.csv', 
+	# 		sep=sep,
+	# 		chunksize=100
+	# 	):
+	# 		names.append(chunk['name'].to_list())
+	
+	if os.path.isfile('document.csv'):
+		df = pandas.read_csv('document.csv', sep=sep, error_bad_lines=False, engine='python')
+		return df['name'].to_list()
+	else: 
+		create_csv()
+		return []
+		
+		
 def scrape_website(e):
 	try: 
 		website = e.find_element(By.XPATH, './/a[@data-item-id="authority"]').get_attribute("href")
