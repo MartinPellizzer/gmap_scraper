@@ -17,7 +17,7 @@ import csv
 
 driver = None
 
-sep = '|'
+sep = '\\'
 
 
 ######################################################################################
@@ -179,22 +179,30 @@ def debug_info(name, address, district, website, phone, emails):
 	print(f'{"":->64}')
 	print()
 
+def add_business_to_csv(output_file, name, address, website, phone, s_emails, district):
+	string_to_write = ''
+	string_to_write += f'{name}{sep}'
+	string_to_write += f'{address}{sep}'
+	string_to_write += f'{website}{sep}'
+	string_to_write += f'{phone}{sep}'
+	string_to_write += f'{s_emails}{sep}'
+	string_to_write += f'{district}\n'
 
-def scrape_new_business(search_text):
+	with open(output_file, 'a', encoding="utf-8") as f:
+		f.write(string_to_write)
+
+def scrape_new_business(search_text, i):
 	global sep
-	
+
 	output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
 
-	print('Check Old Businesses...')
 	old_businesses = get_old_businesses(output_file)
 	business, label = find_new_business(old_businesses)
 
+	print(f'{i}: {label}')
+
 	if not business:
-		print('No New Businesses!!!')
-		try: 
-			scroll_down_up_down()
-		except: 
-			return 'skip_search'
+		scroll_down_up_down()
 		return 'no_new_business_found'
 
 	# google maps is bugged: scroll a bit the screen and try clicking again if needed
@@ -216,18 +224,14 @@ def scrape_new_business(search_text):
 	emails = scrape_emails(website)
 	s_emails = ' '.join(emails)
 
-	debug_info(name, address, district, website, phone, s_emails)
+	add_business_to_csv(output_file, name, address, website, phone, s_emails, district)
 
-	string_to_write = ''
-	string_to_write += f'{name}{sep}'
-	string_to_write += f'{address}{sep}'
-	string_to_write += f'{website}{sep}'
-	string_to_write += f'{phone}{sep}'
-	string_to_write += f'{s_emails}{sep}'
-	string_to_write += f'{district}\n'
+	# debug_info(name, address, district, website, phone, s_emails)
 
-	with open(output_file, 'a', encoding="utf-8") as f:
-		f.write(string_to_write)
+	return 'success'
+	
+
+	
 
 
 ######################################################################################
@@ -248,8 +252,9 @@ def main():
 	open_browser()
 	search(search_text)
 	
-	for _ in range(100):
-		scrape_new_business(search_text)
+	for i in range(100):
+		err = scrape_new_business(search_text, i)
+		print(err, '\n')
 	
 	driver.quit()
 
