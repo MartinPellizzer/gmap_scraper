@@ -36,11 +36,15 @@ def get_old_businesses(output_file):
 ######################################################################################
 # STRINGS
 ######################################################################################
-def to_ascii(text):
+def sanitize(text):
+	chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,.-()\'"&@ '
 	encoded_string = text.encode('ascii', 'ignore')
 	decoded_string = encoded_string.decode()
+	text = ''
+	for c in decoded_string:
+		if c in chars:
+			text += c
 	return text
-
 
 ######################################################################################
 # EMAILS
@@ -136,7 +140,7 @@ def get_card_element(e):
 
 def scrape_name(e):
 	try: return e.find_element(By.XPATH, './/h1').text
-	return ''
+	except: return ''
 	
 
 def scrape_address(e):
@@ -163,7 +167,6 @@ def find_new_business(old_businesses):
 	elements = driver.find_elements(By.XPATH, '//div[@role="article"]')
 	for e in elements:
 		label = e.get_attribute('aria-label')
-		label = label.encode('ascii', 'ignore').decode('UTF-8')
 		if label not in old_businesses:
 			return e, label
 	return None, None
@@ -179,15 +182,15 @@ def debug_info(name, address, district, website, phone, emails):
 	print(f'{"":->64}')
 	print()
 
-def add_business_to_csv(output_file, name, address, website, phone, s_emails, district, label):
+def add_business_to_csv(output_file, label, address, website, phone, s_emails, district, name):
 	string_to_write = ''
-	string_to_write += f'{name}{sep}'
+	string_to_write += f'{label}{sep}'
 	string_to_write += f'{address}{sep}'
 	string_to_write += f'{website}{sep}'
 	string_to_write += f'{phone}{sep}'
 	string_to_write += f'{s_emails}{sep}'
 	string_to_write += f'{district}{sep}'
-	string_to_write += f'{label}\n'
+	string_to_write += f'{name}\n'
 
 	with open(output_file, 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
@@ -199,7 +202,6 @@ def scrape_new_business(search_text, i):
 
 	old_businesses = get_old_businesses(output_file)
 	business, label = find_new_business(old_businesses)
-
 	print(f'{i}: {label}')
 
 	if not business:
@@ -222,11 +224,14 @@ def scrape_new_business(search_text, i):
 	emails = scrape_emails(website)
 	s_emails = ' '.join(emails)
 
+	label = sanitize(label)
+	name = sanitize(name)
+
 	if name != label:
-		add_business_to_csv(output_file, name, address, website, phone, s_emails, district, label)
+		add_business_to_csv(output_file, label, address, website, phone, s_emails, district, name)
 		return 'name_not_equal_label'
 
-	add_business_to_csv(output_file, name, address, website, phone, s_emails, district, '')
+	add_business_to_csv(output_file, label, address, website, phone, s_emails, district, '')
 
 	# debug_info(name, address, district, website, phone, s_emails)
 
@@ -239,7 +244,6 @@ def scrape_new_business(search_text, i):
 ######################################################################################
 # MAIN
 ######################################################################################
-
 def main():
 	# params = sys.argv[1:]
 	# if len(params) != 1:
@@ -264,24 +268,24 @@ def main():
 	
 	# driver.quit()
 
-# main()
+main()
 
 
-search_text = 'salumifici parma'
+# search_text = 'salumifici parma'
 
-open_browser()
-search(search_text)
+# open_browser()
+# search(search_text)
 
-for i in range(100):
-	err = scrape_new_business(search_text, i)
-	print(err, '\n')
+# for i in range(100):
+# 	err = scrape_new_business(search_text, i)
+# 	print(err, '\n')
 
 
 
-output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
+# output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
 
-old_businesses = get_old_businesses(output_file)
-business, label = find_new_business(old_businesses)
+# old_businesses = get_old_businesses(output_file)
+# business, label = find_new_business(old_businesses)
 
-card_element = get_card_element(business)
-e.find_element(By.XPATH, './/h1').text
+# card_element = get_card_element(business)
+# e.find_element(By.XPATH, './/h1').text
