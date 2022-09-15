@@ -162,11 +162,13 @@ def scrape_phone(e):
 	try: return e.find_element(By.XPATH, './/button[contains(@data-item-id, "phone")]').text
 	except: return ''
 
+
 def find_new_business(old_businesses):
 	global driver
 	elements = driver.find_elements(By.XPATH, '//div[@role="article"]')
 	for e in elements:
 		label = e.get_attribute('aria-label')
+		label = sanitize(label)
 		if label not in old_businesses:
 			return e, label
 	return None, None
@@ -182,6 +184,7 @@ def debug_info(name, address, district, website, phone, emails):
 	print(f'{"":->64}')
 	print()
 
+
 def add_business_to_csv(output_file, label, address, website, phone, s_emails, district, name):
 	string_to_write = ''
 	string_to_write += f'{label}{sep}'
@@ -194,6 +197,7 @@ def add_business_to_csv(output_file, label, address, website, phone, s_emails, d
 
 	with open(output_file, 'a', encoding="utf-8") as f:
 		f.write(string_to_write)
+		
 
 def scrape_new_business(search_text, i):
 	global sep
@@ -224,7 +228,6 @@ def scrape_new_business(search_text, i):
 	emails = scrape_emails(website)
 	s_emails = ' '.join(emails)
 
-	label = sanitize(label)
 	name = sanitize(name)
 
 	if name != label:
@@ -271,21 +274,22 @@ def main():
 main()
 
 
-# search_text = 'salumifici parma'
+search_text = 'salumifici parma'
 
-# open_browser()
-# search(search_text)
+open_browser()
+search(search_text)
 
-# for i in range(100):
-# 	err = scrape_new_business(search_text, i)
-# 	print(err, '\n')
+for i in range(30):
+	err = scrape_new_business(search_text, i)
+	print(err, '\n')
+	if err == 'name_not_equal_label': break
 
 
 
-# output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
+output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
 
-# old_businesses = get_old_businesses(output_file)
-# business, label = find_new_business(old_businesses)
+old_businesses = get_old_businesses(output_file)
+business, label = find_new_business(old_businesses)
 
-# card_element = get_card_element(business)
-# e.find_element(By.XPATH, './/h1').text
+card_element = get_card_element(business)
+e.find_element(By.XPATH, './/h1').text
