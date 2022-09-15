@@ -267,29 +267,29 @@ def main():
 	for i in range(scrapes_num):
 		err = scrape_new_business(search_text, i)
 		print(err, '\n')
-		if err == 'name_not_equal_label': break
+		# if err == 'name_not_equal_label': break
 	
-	# driver.quit()
+	driver.quit()
 
 main()
 
 
-search_text = 'salumifici parma'
+# search_text = 'salumifici parma'
 
-open_browser()
-search(search_text)
+# open_browser()
+# search(search_text)
 
-for i in range(30):
-	err = scrape_new_business(search_text, i)
-	print(err, '\n')
-	if err == 'name_not_equal_label': break
+# for i in range(30):
+# 	err = scrape_new_business(search_text, i)
+# 	print(err, '\n')
+# 	if err == 'name_not_equal_label': break
 
 
 
-output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
+# output_file = f'./exports/{search_text}.csv'.replace(' ', '_')
 
-old_businesses = get_old_businesses(output_file)
-business, label = find_new_business(old_businesses)
+# old_businesses = get_old_businesses(output_file)
+# business, label = find_new_business(old_businesses)
 
-card_element = get_card_element(business)
-e.find_element(By.XPATH, './/h1').text
+# card_element = get_card_element(business)
+# e.find_element(By.XPATH, './/h1').text
