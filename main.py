@@ -46,6 +46,7 @@ def sanitize(text):
 			text += c
 	return text
 
+
 ######################################################################################
 # EMAILS
 ######################################################################################
@@ -214,6 +215,7 @@ def scrape_new_business(search_text, i):
 
 	# google maps is bugged: scroll a bit the screen and try clicking again if needed
 	if not click_on_listing(business):
+		scroll_down_up_down()
 		return 'failed_to_click_listing'
 
 	sleep(3)
